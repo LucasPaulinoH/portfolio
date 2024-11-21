@@ -5,6 +5,15 @@ import ContactCard from "./components/contact";
 import { FaLinkedinIn } from "react-icons/fa";
 import { MdOutlineEmail } from "react-icons/md";
 import { FiGithub } from "react-icons/fi";
+import brasilIcon from "./assets/brasil-icon.png";
+import { SiTypescript } from "react-icons/si";
+import { SiJavascript } from "react-icons/si";
+import { SiCplusplus } from "react-icons/si";
+import { SiReact } from "react-icons/si";
+import { SiSpring } from "react-icons/si";
+import { FaJava } from "react-icons/fa";
+import { SiC } from "react-icons/si";
+import Technology from "./components/technology";
 
 function App() {
   const presentationSection = (
@@ -17,6 +26,16 @@ function App() {
   const tecnologiesSection = (
     <section id="technologies" style={styles.generalSection}>
       <h1>Technologies</h1>
+      <div style={styles.technologiesGrid}>
+        <Technology icon={<SiJavascript />} label="JavaScript" />
+        <Technology icon={<SiTypescript />} label="TypeScript" />
+        <Technology icon={<FaJava />} label="Java" />
+        <Technology icon={<SiCplusplus />} label="C++" />
+        <Technology icon={<SiC />} label="C" />
+        <Technology icon={<SiReact />} label="React JS" />
+        <Technology icon={<SiReact />} label="React Native" />
+        <Technology icon={<SiSpring />} label="Spring Boot" />
+      </div>
     </section>
   );
 
@@ -52,6 +71,15 @@ function App() {
     </section>
   );
 
+  const footer = (
+    <section style={styles.footer}>
+      <img src={brasilIcon} alt="Brazil icon" style={styles.brazilIcon} />
+      <h5 style={{ fontWeight: "normal" }}>
+        Lucas Paulino © {new Date().getFullYear()}
+      </h5>
+    </section>
+  );
+
   return (
     <div>
       <video
@@ -67,6 +95,7 @@ function App() {
         {tecnologiesSection}
         {projectsSection}
         {contactSection}
+        {footer}
       </div>
     </div>
   );
@@ -82,6 +111,15 @@ const styles = {
     flexDirection: "column",
     alignItems: "center",
     justifyContent: "center",
+    gap: 60,
+  } as CSSProperties,
+
+  technologiesGrid: {
+    width: "100%",
+    display: "grid",
+    gridTemplateColumns: "repeat(auto-fit, minmax(min(130px, 100%), 1fr))",
+    rowGap: 5,
+    columnGap: 5,
   } as CSSProperties,
 
   contactsContainer: {
@@ -90,5 +128,35 @@ const styles = {
     justifyContent: "center",
     gap: 100,
     marginTop: "50px",
+
+    "@media:max-width(750px)": {
+      flexDirection: "column",
+    },
+  } as CSSProperties,
+
+  footer: {
+    width: "100%",
+    height: "64px",
+    display: "flex",
+    alignItems: "center",
+    justifyContent: "center",
+    gap: 5,
+  } as CSSProperties,
+
+  brazilIcon: {
+    width: "30px",
+    height: "30px",
   } as CSSProperties,
 };
+
+const globalMediaStyle = `
+  @media (max-width: 750px) {
+    .contacts-container {
+      flex-direction: column;
+    }
+  }
+`;
+
+const styleSheet = document.createElement("style");
+styleSheet.innerText = globalMediaStyle;
+document.head.appendChild(styleSheet);

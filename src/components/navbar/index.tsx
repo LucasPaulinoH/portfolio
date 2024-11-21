@@ -1,4 +1,4 @@
-import { CSSProperties, useEffect, useState } from "react";
+import { CSSProperties, useState } from "react";
 import { PRIMARY_COLOR, WHITE } from "../../theme/palette";
 import { Link } from "react-scroll";
 
@@ -34,6 +34,7 @@ const Navbar = () => {
               spy
               smooth
               duration={500}
+              onSetActive={() => setSelectedSectionIndex(index)}
             >
               {label}
             </Link>
@@ -59,6 +60,7 @@ const styles = {
     WebkitBoxShadow: "0 5px 10px -5px rgba(255,255,255,0.5)",
     color: WHITE,
     position: "fixed",
+    zIndex: 2
   } as CSSProperties,
 
   logoContainer: {
