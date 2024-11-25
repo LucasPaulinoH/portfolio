@@ -1,17 +1,19 @@
-.icon-hover {
-  position: relative;
-  transition: transform 0.3s ease;
+.icon {
+  transition: transform 0.3s ease, fill 0.3s ease;
 }
 
-.icon-hover:hover {
+.container:hover .icon {
   transform: scale(1.2);
+  fill: var(--hover-color);
 }
 
-.icon-label {
+.label {
   opacity: 0;
-  transition: opacity 0.3s ease;
+  transition: opacity 0.1s ease;
+  color: var(--hover-color);
+  font-weight: bold;
 }
 
-.icon-hover:hover .icon-label {
+.container:hover .label {
   opacity: 1;
 }

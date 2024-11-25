@@ -1,4 +1,4 @@
-import { CSSProperties, ReactNode } from "react";
+import { ReactNode } from "react";
 import { WHITE } from "../../theme/palette";
 import styled from "styled-components";
 
@@ -13,32 +13,25 @@ const ContactCard = (props: ContactCardProps) => {
   const { icon, title, content, link } = props;
 
   return (
-    <a href={link} style={styles.link}>
-      <div style={styles.container}>
+    <Link href={link}>
+      <Container>
         <Icon>{icon}</Icon>
         <h3>{title}</h3>
         <p>{content}</p>
-      </div>
-    </a>
+      </Container>
+    </Link>
   );
 };
 
 export default ContactCard;
 
-const styles = {
-  link: {
-    textDecoration: "none",
-    color: "inherit",
-  } as CSSProperties,
-
-  container: {
-    display: "flex",
-    flexDirection: "column",
-    alignItems: "center",
-    gap: 10,
-    textDecoration: "none",
-  } as CSSProperties,
-};
+const Container = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10;
+  text-decoration: none;
+`;
 
 const Icon = styled.div`
   width: 70px;
@@ -52,9 +45,14 @@ const Icon = styled.div`
   margin: 20px 0px;
   transition: transform 0.3s ease;
   box-shadow: inset 0 100px 200px rgba(255, 255, 255, 0.05);
-  backdrop-filter: blur(1.5px);
+  backdrop-filter: blur(5px);
 
   &:hover {
     transform: scale(1.2);
   }
+`;
+
+const Link = styled.a`
+  text-decoration: none;
+  color: inherit;
 `;

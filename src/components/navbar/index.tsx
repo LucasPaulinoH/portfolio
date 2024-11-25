@@ -55,12 +55,11 @@ const styles = {
     display: "flex",
     alignItems: "center",
     justifyContent: "space-around",
-    boxShadow: "inset 0 100px 200px rgba(255,255,255,0.05)",
-    backdropFilter: "blur(1.5px)",
-    WebkitBoxShadow: "0 5px 10px -5px rgba(255,255,255,0.5)",
+    boxShadow: "inset 0 100px 200px rgba(0,0,0,0.3)",
+    backdropFilter: "blur(10.0px)",
     color: WHITE,
     position: "fixed",
-    zIndex: 2
+    zIndex: 2,
   } as CSSProperties,
 
   logoContainer: {

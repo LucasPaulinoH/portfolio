@@ -1,34 +1,37 @@
-import { ReactNode, ReactElement, cloneElement, CSSProperties } from "react";
 import "./styles.css";
+import { TecIcon } from "../../types/technologyIcons";
+import styled from "styled-components";
+import { PRIMARY_COLOR } from "../../theme/palette";
+import { CSSProperties } from "react";
 
 interface TechnologyProps {
-  icon: ReactNode;
-  label?: string;
+  tecInfo: TecIcon;
 }
 
 const Technology = (props: TechnologyProps) => {
-  const { icon, label } = props;
+  const { tecInfo } = props;
   const ICON_SIZE = 80;
 
-  const IconWithSize = cloneElement(icon as ReactElement, { size: ICON_SIZE });
-
   return (
-    <div style={styles.iconContainer} className="icon-hover">
-      {IconWithSize}
-      {label && <p className="icon-label">{label}</p>}
-    </div>
+    <Container
+      href={tecInfo.link}
+      className="container"
+      style={{ "--hover-color": PRIMARY_COLOR } as CSSProperties}
+    >
+      <tecInfo.icon size={ICON_SIZE} className="icon" />
+      <p className="label">{tecInfo.name}</p>
+    </Container>
   );
 };
 
 export default Technology;
 
-const styles = {
-  iconContainer: {
-    display: "flex",
-    flexDirection: "column",
-    alignItems: "center",
-    gap: 20,
-    position: "relative",
-    transition: "transform 0.3s ease",
-  } as CSSProperties,
-};
+const Container = styled.a`
+  text-decoration: none;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  gap: 25px;
+`;
