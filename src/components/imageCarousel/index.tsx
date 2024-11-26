@@ -6,13 +6,13 @@ import { PRIMARY_COLOR, SECONDARY_COLOR } from "../../theme/palette";
 
 interface ImageCarouselProps {
   imageUrls: string[];
+  size: number;
 }
 
 const ImageCarousel = (props: ImageCarouselProps) => {
-  const { imageUrls } = props;
-  const [currentImageIndex, setCurrentImageIndex] = useState(0);
+  const { imageUrls, size } = props;
 
-  const IMAGE_SKIPER_BUTTON_SIZE = 30;
+  const [currentImageIndex, setCurrentImageIndex] = useState(0);
 
   const handleNextImageClick = () => {
     setCurrentImageIndex(
@@ -49,10 +49,10 @@ const ImageCarousel = (props: ImageCarouselProps) => {
         ))}
       </CarouselStepContainer>
       <LeftButtonContainer onClick={handlePreviousImageClick}>
-        <FaAngleLeft size={IMAGE_SKIPER_BUTTON_SIZE} />
+        <FaAngleLeft size={size} />
       </LeftButtonContainer>
       <RightButtonContainer onClick={handleNextImageClick}>
-        <FaAngleRight size={IMAGE_SKIPER_BUTTON_SIZE} />
+        <FaAngleRight size={size} />
       </RightButtonContainer>
     </Container>
   );
@@ -63,7 +63,7 @@ export default ImageCarousel;
 const styles = {
   image: {
     width: "100%",
-    height: "90%",
+    height: "100%",
     display: "block",
     objectFit: "cover",
   } as CSSProperties,
@@ -80,25 +80,42 @@ const CarouselStepContainer = styled.div`
   position: absolute;
   width: 100%;
   justify-content: center;
+  bottom: 0;
   display: flex;
 `;
 
 const LeftButtonContainer = styled.div`
   position: absolute;
-  top: 0;
-  bottom: 0;
-  padding: 1rem;
-  border-radius: 0px;
-  display: block;
-  left: 0;
+
+  top: 50%;
+  transform: translateY(-50%);
+  display: flex;
+  padding: 5px;
+  justify-content: center;
+  align-items: center;
+  left: 5px;
+
+  :hover {
+    background-color: rgba(0, 0, 0, 0.2);
+    border-radius: 50%;
+  }
+  cursor: pointer;
 `;
 
 const RightButtonContainer = styled.div`
   position: absolute;
-  top: 0;
-  bottom: 0;
-  padding: 1rem;
-  border-radius: 0px;
-  display: block;
-  right: 0;
+
+  top: 50%;
+  transform: translateY(-50%);
+  display: flex;
+  padding: 5px;
+  justify-content: center;
+  align-items: center;
+  right: 5px;
+
+  :hover {
+    background-color: rgba(0, 0, 0, 0.2);
+    border-radius: 50%;
+  }
+  cursor: pointer;
 `;

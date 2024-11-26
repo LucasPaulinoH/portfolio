@@ -10,6 +10,9 @@ import { projects } from "./types/projects";
 import ProjectCard from "./components/projectCard";
 import { TECHNOLOGY_ICONS } from "./types/technologyIcons";
 import Technology from "./components/technology";
+import { Swiper, SwiperSlide } from "swiper/react";
+import "./styles.css";
+import "swiper/css";
 
 function App() {
   const presentationSection = (
@@ -22,7 +25,7 @@ function App() {
   const technologiesSection = (
     <Section id="technologies">
       <h1>Technologies</h1>
-      <TechnologiesGrid>
+      <TechnologiesGrid style={{ width: "80%" }}>
         {TECHNOLOGY_ICONS.map((item, index) => (
           <Technology tecInfo={item} key={index} />
         ))}
@@ -31,24 +34,35 @@ function App() {
   );
 
   const projectsSection = (
-    <Section id="projects" style={{  gap: "30px"}}>
+    <Section id="projects">
       <h1>Projects</h1>
-      <ProjectContainer>
+
+      <Swiper
+        slidesPerView={4}
+        spaceBetween={10}
+        centeredSlides={true}
+        pagination={{
+          clickable: true,
+        }}
+        initialSlide={1}
+      >
         {projects.map((project, index) => (
-          <ProjectCard
-            key={index}
-            title={project.title}
-            description={project.description}
-            images={project.images}
-            technologies={project.technologies}
-          />
+          <SwiperSlide>
+            <ProjectCard
+              key={index}
+              title={project.title}
+              description={project.description}
+              images={project.images}
+              technologies={project.technologies}
+            />
+          </SwiperSlide>
         ))}
-      </ProjectContainer>
+      </Swiper>
     </Section>
   );
 
   const contactSection = (
-    <Section id="contact">
+    <Section id="contact" style={{ gap: "30px" }}>
       <h1>Contacts</h1>
       <ContactsContainer>
         <ContactCard
@@ -126,26 +140,4 @@ const ContactsContainer = styled.div`
   }
 `;
 
-const ProjectContainer = styled.div`
-  display: flex;
-  gap: 30px;
-  overflow-x: scroll;
-  width: 95%;
-  box-shadow: -30px 0 30px -20px rgba(0, 0, 0, 0.6) inset,
-    30px 0 30px -20px rgba(0, 0, 0, 0.6) inset;
-  border-radius: 10px;
-  padding-bottom: 20px;
-
-  &::-webkit-scrollbar {
-    height: 8px;
-  }
-
-  &::-webkit-scrollbar-thumb {
-    background: #1e3e62;
-    border-radius: 4px;
-  }
-
-  &::-webkit-scrollbar-thumb:hover {
-    background: #ff204e;
-  }
-`;
+const ProjectContainer = styled.div``;

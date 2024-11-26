@@ -10,7 +10,7 @@ const ProjectCard = (props: IProjectCard) => {
     <StyledWrapper>
       <div className="card">
         <div className="content">
-          <ImageCarousel imageUrls={images} />
+          <ImageCarousel imageUrls={images} size={25} />
           <h3>{title}</h3>
           <p>{shortenLargeTexts(description, 133)}</p>
           <TechnologiesContainer>
@@ -34,27 +34,23 @@ const StyledWrapper = styled.div`
     align-items: center;
     justify-content: center;
     width: 320px;
-    height: 400px;
-    padding: 15px 25px 30px 25px;
+    height: 370px;
+    padding: 15px 15px 30px 15px;
     overflow: hidden;
     border-radius: 10px;
-    border: 2px solid transparent;
-    transition: all 0.5s cubic-bezier(0.23, 1, 0.32, 1);
-    cursor: pointer;
-    background-color: rgba(255, 255, 255, 0.06);
-    backdrop-filter: blur(5px);
-    border: 1.5px solid rgba(255, 255, 255, 0.4);
+    border: 1px solid rgba(255, 255, 255, 0.6);
+    backdrop-filter: blur(8px);
   }
 
   .content {
     display: flex;
     flex-direction: column;
     align-items: flex-start;
-    gap: 20px;
-    transition: all 0.5s cubic-bezier(0.23, 1, 0.32, 1);
+    gap: 15px;
     text-align: justify;
     width: 100%;
     height: 100%;
+    background: none;
   }
 `;
 
