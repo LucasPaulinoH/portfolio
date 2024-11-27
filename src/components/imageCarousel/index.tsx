@@ -38,22 +38,28 @@ const ImageCarousel = (props: ImageCarouselProps) => {
         loading="lazy"
         style={styles.image}
       />
-      <CarouselStepContainer>
-        {imageUrls.map((_, index) => (
-          <GoDotFill
-            key={index}
-            fill={currentImageIndex === index ? PRIMARY_COLOR : SECONDARY_COLOR}
-            style={{ padding: 0, margin: 0 }}
-            onClick={() => setCurrentImageIndex(index)}
-          />
-        ))}
-      </CarouselStepContainer>
-      <LeftButtonContainer onClick={handlePreviousImageClick}>
-        <FaAngleLeft size={size} />
-      </LeftButtonContainer>
-      <RightButtonContainer onClick={handleNextImageClick}>
-        <FaAngleRight size={size} />
-      </RightButtonContainer>
+      {imageUrls.length > 1 ? (
+        <>
+          <CarouselStepContainer>
+            {imageUrls.map((_, index) => (
+              <GoDotFill
+                key={index}
+                fill={
+                  currentImageIndex === index ? PRIMARY_COLOR : SECONDARY_COLOR
+                }
+                style={{ padding: 0, margin: 0 }}
+                onClick={() => setCurrentImageIndex(index)}
+              />
+            ))}
+          </CarouselStepContainer>
+          <LeftButtonContainer onClick={handlePreviousImageClick}>
+            <FaAngleLeft size={size} />
+          </LeftButtonContainer>
+          <RightButtonContainer onClick={handleNextImageClick}>
+            <FaAngleRight size={size} />
+          </RightButtonContainer>
+        </>
+      ) : null}
     </Container>
   );
 };

@@ -20,7 +20,8 @@ export const projects: IProjectCard[] = [
   {
     images: images,
     title: "Tarefando",
-    description: "",
+    description:
+      "A mobile app for academic tasks tracking focus on primary education and tutoring.",
     technologies: [
       "React Native",
       "TypeScript",
@@ -30,16 +31,19 @@ export const projects: IProjectCard[] = [
       "Firebase",
     ],
   },
+
   {
     images: images,
     title: "3DViewer",
-    description: "",
+    description:
+      "A mobile app for academic tasks tracking focus on primary education and tutoring.",
     technologies: ["C++"],
   },
   {
     images: images,
     title: "Image Playground",
-    description: "",
+    description:
+      "A mobile app for academic tasks tracking focus on primary education and tutoring.",
     technologies: ["React JS", "TypeScript"],
   },
 ];

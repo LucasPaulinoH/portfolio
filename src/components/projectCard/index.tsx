@@ -1,57 +1,56 @@
 import { IProjectCard } from "../../types/projects";
 import styled from "styled-components";
-import ImageCarousel from "../imageCarousel";
 import { shortenLargeTexts } from "../../utils/stringUtils";
+import { PRIMARY_COLOR } from "../../theme/palette";
 
 const ProjectCard = (props: IProjectCard) => {
   const { images, title, description, technologies } = props;
 
   return (
-    <StyledWrapper>
-      <div className="card">
-        <div className="content">
-          <ImageCarousel imageUrls={images} size={25} />
-          <h3>{title}</h3>
-          <p>{shortenLargeTexts(description, 133)}</p>
-          <TechnologiesContainer>
-            {technologies.map((technology, index) => (
-              <TechnologyChip key={index}>{technology}</TechnologyChip>
-            ))}
-          </TechnologiesContainer>
-        </div>
-      </div>
-    </StyledWrapper>
+    <CardContainer className="card">
+      <img src={images[0]} alt="preview img" />
+      <ContentContainer>
+        <h3 className="title">{title}</h3>
+        <span>{shortenLargeTexts(description, 100)}</span>
+        <TechnologiesContainer>
+          {technologies.map((technology, index) => (
+            <TechnologyChip key={index}>{technology}</TechnologyChip>
+          ))}
+        </TechnologiesContainer>
+      </ContentContainer>
+    </CardContainer>
   );
 };
 
 export default ProjectCard;
 
-const StyledWrapper = styled.div`
-  .card {
-    position: relative;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    width: 320px;
-    height: 370px;
-    padding: 15px 15px 30px 15px;
-    overflow: hidden;
-    border-radius: 10px;
-    border: 1px solid rgba(255, 255, 255, 0.6);
-    backdrop-filter: blur(8px);
+const CardContainer = styled.div`
+  max-width: 320px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  border-radius: 10px;
+  white-space: initial;
+  text-align: justify;
+  cursor: pointer;
+
+  img:hover .title {
+    color: ${PRIMARY_COLOR};
   }
 
-  .content {
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-    gap: 15px;
-    text-align: justify;
-    width: 100%;
-    height: 100%;
-    background: none;
+  :hover .title {
+    color: ${PRIMARY_COLOR};
   }
+
+  .title {
+    transition: color ease 0.15s;
+  }
+`;
+
+const ContentContainer = styled.div`
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
 `;
 
 const TechnologiesContainer = styled.div`
@@ -62,7 +61,7 @@ const TechnologiesContainer = styled.div`
 `;
 
 const TechnologyChip = styled.div`
-  background-color: rgba(0, 0, 0, 0.4);
+  background-color: rgba(0, 0, 0, 0.15);
   padding: 5px 10px;
   border: 1px solid rgba(255, 255, 255, 0.4);
   border-radius: 15px;

@@ -10,15 +10,28 @@ import { projects } from "./types/projects";
 import ProjectCard from "./components/projectCard";
 import { TECHNOLOGY_ICONS } from "./types/technologyIcons";
 import Technology from "./components/technology";
-import { Swiper, SwiperSlide } from "swiper/react";
-import "./styles.css";
-import "swiper/css";
+import { WHITE } from "./theme/palette";
 
 function App() {
   const presentationSection = (
     <Section id="about-me">
-      <h1>Hello there, I'm Lucas Paulino!</h1>
-      <button>Read CV</button>
+      <div>
+        <h1>Hello there, i'm</h1>
+        <h1 style={{ fontSize: "50px" }}>Lucas Paulino</h1>
+      </div>
+      <div style={{ width: "40%", textAlign: "justify" }}>
+        <p>
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras vel
+          pharetra eros, eu hendrerit urna. Praesent eget malesuada ante. Sed at
+          lacus odio. Nam vel quam sit amet sem faucibus mattis. Morbi ut urna
+          dolor.
+        </p>
+      </div>
+      <ButtonContainer>
+        <button>
+          <h2 className="text">Read CV</h2>
+        </button>
+      </ButtonContainer>
     </Section>
   );
 
@@ -35,34 +48,24 @@ function App() {
 
   const projectsSection = (
     <Section id="projects">
-      <h1>Projects</h1>
+      <h1>Main projects</h1>
 
-      <Swiper
-        slidesPerView={4}
-        spaceBetween={10}
-        centeredSlides={true}
-        pagination={{
-          clickable: true,
-        }}
-        initialSlide={1}
-      >
+      <ProjectContainer>
         {projects.map((project, index) => (
-          <SwiperSlide>
-            <ProjectCard
-              key={index}
-              title={project.title}
-              description={project.description}
-              images={project.images}
-              technologies={project.technologies}
-            />
-          </SwiperSlide>
+          <ProjectCard
+            key={index}
+            title={project.title}
+            description={project.description}
+            images={project.images}
+            technologies={project.technologies}
+          />
         ))}
-      </Swiper>
+      </ProjectContainer>
     </Section>
   );
 
   const contactSection = (
-    <Section id="contact" style={{ gap: "30px" }}>
+    <Section id="contact" style={{ gap: "30px", marginTop: "-30px" }}>
       <h1>Contacts</h1>
       <ContactsContainer>
         <ContactCard
@@ -110,6 +113,55 @@ function App() {
 
 export default App;
 
+const ButtonContainer = styled.div`
+  button {
+    align-items: center;
+    background: linear-gradient(144deg, #fff480, #ff6500 50%, #ff8c32);
+    border: 0;
+    border-radius: 100px;
+    box-shadow: rgba(255, 101, 0, 0.5) 0 2px 30px 5px;
+    box-sizing: border-box;
+    color: ${WHITE};
+    display: flex;
+    justify-content: center;
+    line-height: 1em;
+    max-width: 100%;
+    min-width: 140px;
+    padding: 3px;
+    text-decoration: none;
+    user-select: none;
+    -webkit-user-select: none;
+    touch-action: manipulation;
+    white-space: nowrap;
+    cursor: pointer;
+    transition: all 0.3s;
+    font-weight: bold;
+  }
+
+  button:active,
+  button:hover {
+    outline: 0;
+    box-shadow: rgba(255, 101, 0, 0.7) 0 2px 30px 7px;
+  }
+
+  button h2 {
+    background-color: #040421;
+    padding: 16px 24px;
+    border-radius: 100px;
+    width: 100%;
+    height: 100%;
+    transition: 300ms;
+  }
+
+  button:hover h2 {
+    background: none;
+  }
+
+  button:active {
+    transform: scale(0.9);
+  }
+`;
+
 const Section = styled.section`
   width: 100%;
   height: 100vh;
@@ -140,4 +192,15 @@ const ContactsContainer = styled.div`
   }
 `;
 
-const ProjectContainer = styled.div``;
+const ProjectContainer = styled.div`
+  display: flex;
+  justify-content: space-around;
+  gap: 30px;
+  overflow-x: auto;
+  white-space: nowrap;
+  width: 95%;
+  backdrop-filter: blur(15px);
+  padding: 30px;
+  border-radius: 10px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+`;

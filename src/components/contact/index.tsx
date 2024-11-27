@@ -14,8 +14,8 @@ const ContactCard = (props: ContactCardProps) => {
 
   return (
     <Link href={link}>
-      <Container>
-        <Icon>{icon}</Icon>
+      <Container className="container">
+        <Icon className="icon">{icon}</Icon>
         <h3>{title}</h3>
         <p>{content}</p>
       </Container>
@@ -47,7 +47,7 @@ const Icon = styled.div`
   box-shadow: inset 0 100px 200px rgba(255, 255, 255, 0.05);
   backdrop-filter: blur(5px);
 
-  &:hover {
+  .container:hover .icon {
     transform: scale(1.2);
   }
 `;
