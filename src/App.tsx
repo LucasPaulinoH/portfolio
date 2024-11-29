@@ -10,34 +10,60 @@ import { projects } from "./types/projects";
 import ProjectCard from "./components/projectCard";
 import { TECHNOLOGY_ICONS } from "./types/technologyIcons";
 import Technology from "./components/technology";
-import { WHITE } from "./theme/palette";
+import { FONT_SIZES } from "./utils/fontSizes";
+import { GiBrazilFlag } from "react-icons/gi";
+import ReadCVButton from "./components/readCvButton";
+import {
+  BRIGHTER_GRADIENT_COLOR,
+  DARKER_GRADIENT_COLOR,
+  PRIMARY_COLOR,
+} from "./theme/palette";
+import GlobalStyles from "./theme/globalStyles";
+import Modal from "./components/projectModal";
+import { useEffect, useState } from "react";
 
 function App() {
+  const [showProjectModal, setShowProjectModal] = useState(false);
+  const [selectedProjectToExpand, setSelectedProjectToExpand] = useState(0);
+
+  useEffect(() => {
+    console.log(selectedProjectToExpand);
+  }, [selectedProjectToExpand]);
+
   const presentationSection = (
-    <Section id="about-me">
+    <Section id="about-me" style={{ gap: "10px" }}>
       <div>
-        <h1>Hello there, i'm</h1>
-        <h1 style={{ fontSize: "50px" }}>Lucas Paulino</h1>
+        <h1 style={{ fontSize: FONT_SIZES[0] }}>
+          Hello there, i'm{" "}
+          <span
+            style={{
+              background: `linear-gradient(155deg, ${BRIGHTER_GRADIENT_COLOR}, ${PRIMARY_COLOR} 50%, ${DARKER_GRADIENT_COLOR})`,
+              WebkitBackgroundClip: "text",
+              WebkitTextFillColor: "transparent",
+              display: "inline-block",
+            }}
+          >
+            Lucas Paulino
+          </span>
+        </h1>
+
+        <div className="subtitle-container">
+          <h1 style={{ fontSize: FONT_SIZES[1], fontWeight: "normal" }}>
+            Computer scientist based in Brazil
+          </h1>
+          <GiBrazilFlag size={35} />
+        </div>
       </div>
-      <div style={{ width: "40%", textAlign: "justify" }}>
-        <p>
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras vel
-          pharetra eros, eu hendrerit urna. Praesent eget malesuada ante. Sed at
-          lacus odio. Nam vel quam sit amet sem faucibus mattis. Morbi ut urna
-          dolor.
-        </p>
+      <div className="self-description-container">
+        <p></p>
       </div>
-      <ButtonContainer>
-        <button>
-          <h2 className="text">Read CV</h2>
-        </button>
-      </ButtonContainer>
+      <ReadCVButton />
     </Section>
   );
 
   const technologiesSection = (
     <Section id="technologies">
-      <h1>Technologies</h1>
+      <h1 style={{ fontSize: FONT_SIZES[2] }}>Technologies</h1>
       <TechnologiesGrid style={{ width: "80%" }}>
         {TECHNOLOGY_ICONS.map((item, index) => (
           <Technology tecInfo={item} key={index} />
@@ -48,17 +74,24 @@ function App() {
 
   const projectsSection = (
     <Section id="projects">
-      <h1>Main projects</h1>
+      <h1 style={{ fontSize: FONT_SIZES[2] }}>Main projects</h1>
 
       <ProjectContainer>
         {projects.map((project, index) => (
-          <ProjectCard
+          <div
             key={index}
-            title={project.title}
-            description={project.description}
-            images={project.images}
-            technologies={project.technologies}
-          />
+            onClick={() => {
+              setShowProjectModal(true);
+              setSelectedProjectToExpand(index);
+            }}
+          >
+            <ProjectCard
+              title={project.title}
+              description={project.description}
+              images={project.images}
+              technologies={project.technologies}
+            />
+          </div>
         ))}
       </ProjectContainer>
     </Section>
@@ -66,7 +99,7 @@ function App() {
 
   const contactSection = (
     <Section id="contact" style={{ gap: "30px", marginTop: "-30px" }}>
-      <h1>Contacts</h1>
+      <h1 style={{ fontSize: FONT_SIZES[2] }}>Contacts</h1>
       <ContactsContainer>
         <ContactCard
           icon={<MdOutlineEmail size={30} />}
@@ -91,7 +124,9 @@ function App() {
   );
 
   return (
-    <div>
+    <Main>
+      <GlobalStyles />
+      <Modal showModal={showProjectModal} setShowModal={setShowProjectModal} />
       <video
         src={backgroundVideo}
         autoPlay
@@ -99,7 +134,7 @@ function App() {
         muted
         className="background-video"
       />
-      <div className="content">
+      <div className="content" style={{ fontSize: FONT_SIZES[3] }}>
         <Navbar />
         {presentationSection}
         {technologiesSection}
@@ -107,59 +142,17 @@ function App() {
         {contactSection}
         <Footer />
       </div>
-    </div>
+    </Main>
   );
 }
 
 export default App;
 
-const ButtonContainer = styled.div`
-  button {
-    align-items: center;
-    background: linear-gradient(144deg, #fff480, #ff6500 50%, #ff8c32);
-    border: 0;
-    border-radius: 100px;
-    box-shadow: rgba(255, 101, 0, 0.5) 0 2px 30px 5px;
-    box-sizing: border-box;
-    color: ${WHITE};
-    display: flex;
-    justify-content: center;
-    line-height: 1em;
-    max-width: 100%;
-    min-width: 140px;
-    padding: 3px;
-    text-decoration: none;
-    user-select: none;
-    -webkit-user-select: none;
-    touch-action: manipulation;
-    white-space: nowrap;
-    cursor: pointer;
-    transition: all 0.3s;
-    font-weight: bold;
+const Main = styled.div`
+  :-webkit-scrollbar {
+    display: none;
   }
-
-  button:active,
-  button:hover {
-    outline: 0;
-    box-shadow: rgba(255, 101, 0, 0.7) 0 2px 30px 7px;
-  }
-
-  button h2 {
-    background-color: #040421;
-    padding: 16px 24px;
-    border-radius: 100px;
-    width: 100%;
-    height: 100%;
-    transition: 300ms;
-  }
-
-  button:hover h2 {
-    background: none;
-  }
-
-  button:active {
-    transform: scale(0.9);
-  }
+  overflow: hidden;
 `;
 
 const Section = styled.section`
@@ -170,6 +163,17 @@ const Section = styled.section`
   align-items: center;
   justify-content: center;
   gap: 60px;
+
+  .subtitle-container {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+
+  .self-description-container {
+    width: 70%;
+    text-align: justify;
+  }
 `;
 
 const TechnologiesGrid = styled.div`

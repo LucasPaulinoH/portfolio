@@ -1,6 +1,7 @@
-import { CSSProperties, useState } from "react";
+import { useState } from "react";
 import { PRIMARY_COLOR, TERCIARY_COLOR, WHITE } from "../../theme/palette";
 import { Link } from "react-scroll";
+import styled from "styled-components";
 
 const Navbar = () => {
   const [selectedSectionIndex, setSelectedSectionIndex] = useState(0);
@@ -17,16 +18,15 @@ const Navbar = () => {
   };
 
   return (
-    <div style={styles.navbar} className="navbar">
-      <div style={styles.logoContainer}>
-        <h2>Lucas Paulino</h2>
+    <Container>
+      <div className="logo-container">
+        <h2>LP</h2>
       </div>
-      <div style={styles.navbarButtonsContainer}>
+      <div className="navbar-buttons-container">
         {NAVBAR_LABELS.map(({ label, id }, index) => (
           <div key={id}>
             <Link
               style={{
-                ...styles.navbarButton,
                 color: isbuttonSelected(index) ? PRIMARY_COLOR : WHITE,
                 fontWeight: isbuttonSelected(index) ? "bold" : "normal",
               }}
@@ -35,43 +35,43 @@ const Navbar = () => {
               smooth
               duration={500}
               onSetActive={() => setSelectedSectionIndex(index)}
+              className="navbar-button"
             >
               {label}
             </Link>
           </div>
         ))}
       </div>
-    </div>
+    </Container>
   );
 };
 
 export default Navbar;
 
-const styles = {
-  navbar: {
-    height: "64px",
-    width: "100%",
-    alignSelf: "start",
-    display: "flex",
-    alignItems: "center",
-    justifyContent: "space-around",
-    color: WHITE,
-    position: "fixed",
-    zIndex: 2,
-    backgroundColor: TERCIARY_COLOR
-  } as CSSProperties,
+const Container = styled.div`
+  height: 64px;
+  width: 100%;
+  align-self: start;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  color: WHITE;
+  position: fixed;
+  z-index: 2;
+  background-color: rgba(11, 25, 44, 1);
+  font-weight: lighter;
 
-  logoContainer: {
-    cursor: "pointer",
-  } as CSSProperties,
+  .navbar-buttons-container {
+    display: flex;
+    gap: 40px;
+  }
 
-  navbarButtonsContainer: {
-    display: "flex",
-    gap: 40,
-  } as CSSProperties,
+  .logo-container {
+    cursor: pointer;
+  }
 
-  navbarButton: {
-    cursor: "pointer",
-    transition: "color 0.3s ease",
-  } as CSSProperties,
-};
+  .navbar-button {
+    cursor: pointer;
+    transition: color ease 0.2s;
+  }
+`;

@@ -2,6 +2,7 @@ import { IProjectCard } from "../../types/projects";
 import styled from "styled-components";
 import { shortenLargeTexts } from "../../utils/stringUtils";
 import { PRIMARY_COLOR } from "../../theme/palette";
+import { FONT_SIZES } from "../../utils/fontSizes";
 
 const ProjectCard = (props: IProjectCard) => {
   const { images, title, description, technologies } = props;
@@ -34,12 +35,8 @@ const CardContainer = styled.div`
   text-align: justify;
   cursor: pointer;
 
-  img:hover .title {
-    color: ${PRIMARY_COLOR};
-  }
-
   :hover .title {
-    color: ${PRIMARY_COLOR};
+    color: var(--primary);
   }
 
   .title {
@@ -65,4 +62,5 @@ const TechnologyChip = styled.div`
   padding: 5px 10px;
   border: 1px solid rgba(255, 255, 255, 0.4);
   border-radius: 15px;
+  font-size: ${FONT_SIZES[4]};
 `;

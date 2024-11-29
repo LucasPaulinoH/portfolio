@@ -16,8 +16,8 @@ const ContactCard = (props: ContactCardProps) => {
     <Link href={link}>
       <Container className="container">
         <Icon className="icon">{icon}</Icon>
-        <h3>{title}</h3>
-        <p>{content}</p>
+        <h3>{content}</h3>
+        <p>{title}</p>
       </Container>
     </Link>
   );
