@@ -16,8 +16,8 @@ const GlobalStyles = createGlobalStyle`
     --terciary: ${TERCIARY_COLOR};
     --secondary: ${SECONDARY_COLOR};
     --white: ${WHITE};
-    --shadow: rgba(255, 101, 0, 0.5);
-    --shadow-hover: rgba(255, 101, 0, 0.7);
+    --shadow: rgba(25, 167, 206, 0.5);
+    --shadow-hover: rgba(25, 167, 206, 0.7);
     --background-dark: #040421;
   }
 `;

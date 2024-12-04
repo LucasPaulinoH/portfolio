@@ -3,12 +3,14 @@ import styled from "styled-components";
 
 const Footer = () => {
   return (
-    <Container>
-      <Image src={brasilIcon} alt="Brazil icon" />
-      <h5 style={{ fontWeight: "normal" }}>
-        Lucas Paulino © {new Date().getFullYear()}
-      </h5>
-    </Container>
+    <>
+      <Container>
+        <Image src={brasilIcon} alt="Brazil icon" />
+        <h5 style={{ fontWeight: "normal" }}>
+          © {new Date().getFullYear()} | Lucas Paulino
+        </h5>
+      </Container>
+    </>
   );
 };
 

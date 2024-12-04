@@ -19,19 +19,14 @@ import {
   PRIMARY_COLOR,
 } from "./theme/palette";
 import GlobalStyles from "./theme/globalStyles";
-import Modal from "./components/projectModal";
-import { useEffect, useState } from "react";
+import { useState } from "react";
+import ExpandButton from "./components/expandButton";
 
 function App() {
-  const [showProjectModal, setShowProjectModal] = useState(false);
-  const [selectedProjectToExpand, setSelectedProjectToExpand] = useState(0);
-
-  useEffect(() => {
-    console.log(selectedProjectToExpand);
-  }, [selectedProjectToExpand]);
+  const [expandProjects, setExpandProjects] = useState(false);
 
   const presentationSection = (
-    <Section id="about-me" style={{ gap: "10px" }}>
+    <Section id="home" style={{ gap: "10px" }}>
       <div>
         <h1 style={{ fontSize: FONT_SIZES[0] }}>
           Hello there, i'm{" "}
@@ -54,10 +49,30 @@ function App() {
           <GiBrazilFlag size={35} />
         </div>
       </div>
-      <div className="self-description-container">
-        <p></p>
-      </div>
       <ReadCVButton />
+    </Section>
+  );
+
+  const aboutMeSection = (
+    <Section id="about-me">
+      <h1 style={{ fontSize: FONT_SIZES[2] }}>About me</h1>
+      <div>
+        <p>
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce
+          sollicitudin vulputate dolor, vitae porta dolor aliquet quis.
+          Vestibulum euismod sed elit at cursus. Pellentesque auctor tincidunt
+          tempor. Nam a odio eu ante aliquet porta sit amet eu ligula. Sed
+          placerat auctor sodales. Aenean ut dui at dui lacinia egestas sit amet
+          sed eros. Quisque luctus auctor neque sed blandit. Morbi eget rutrum
+          arcu. Praesent vitae nibh egestas, porttitor dolor sit amet, tincidunt
+          dui. Nam tempor ex ut rutrum dapibus. Maecenas sed eros a leo suscipit
+          placerat quis a mauris. Duis quis purus nec eros hendrerit luctus ac a
+          enim. Phasellus mattis neque metus, ut mattis purus eleifend sit amet.
+          Nunc efficitur scelerisque odio, sed pellentesque lectus rutrum quis.
+          Pellentesque egestas gravida quam quis lacinia. Nulla malesuada massa
+          ante, mollis eleifend ligula rutrum at.
+        </p>
+      </div>
     </Section>
   );
 
@@ -77,45 +92,43 @@ function App() {
       <h1 style={{ fontSize: FONT_SIZES[2] }}>Main projects</h1>
 
       <ProjectContainer>
-        {projects.map((project, index) => (
-          <div
-            key={index}
-            onClick={() => {
-              setShowProjectModal(true);
-              setSelectedProjectToExpand(index);
-            }}
-          >
-            <ProjectCard
-              title={project.title}
-              description={project.description}
-              images={project.images}
-              technologies={project.technologies}
-            />
-          </div>
-        ))}
+        {projects
+          .filter((_, index) => (expandProjects === false ? index < 2 : _))
+          .map((project, index) => (
+            <div key={index}>
+              <ProjectCard
+                title={project.title}
+                description={project.description}
+                images={project.images}
+                technologies={project.technologies}
+                link={project.link}
+              />
+            </div>
+          ))}
       </ProjectContainer>
+      <ExpandButton
+        expandProjects={expandProjects}
+        setExpandProjects={setExpandProjects}
+      />
     </Section>
   );
 
   const contactSection = (
-    <Section id="contact" style={{ gap: "30px", marginTop: "-30px" }}>
+    <Section id="contact">
       <h1 style={{ fontSize: FONT_SIZES[2] }}>Contacts</h1>
       <ContactsContainer>
         <ContactCard
           icon={<MdOutlineEmail size={30} />}
-          title="Email"
           content="lucaspaulinoh@hotmail.com"
           link="mailto:lucaspaulinoh@hotmail.com"
         />
         <ContactCard
           icon={<FiGithub size={30} />}
-          title="GitHub"
           content="LucasPaulinoH"
           link="https://github.com/LucasPaulinoH"
         />
         <ContactCard
           icon={<FaLinkedinIn size={30} />}
-          title="LinkedIn"
           content="lucas-paulino-6b174a15a"
           link="https://www.linkedin.com/in/lucas-paulino-6b174a15a/"
         />
@@ -126,7 +139,7 @@ function App() {
   return (
     <Main>
       <GlobalStyles />
-      <Modal showModal={showProjectModal} setShowModal={setShowProjectModal} />
+
       <video
         src={backgroundVideo}
         autoPlay
@@ -137,8 +150,9 @@ function App() {
       <div className="content" style={{ fontSize: FONT_SIZES[3] }}>
         <Navbar />
         {presentationSection}
-        {technologiesSection}
+        {aboutMeSection}
         {projectsSection}
+        {technologiesSection}
         {contactSection}
         <Footer />
       </div>
@@ -157,12 +171,12 @@ const Main = styled.div`
 
 const Section = styled.section`
   width: 100%;
-  height: 100vh;
+  min-height: 100vh;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  gap: 60px;
+  gap: 40px;
 
   .subtitle-container {
     display: flex;
@@ -197,14 +211,13 @@ const ContactsContainer = styled.div`
 `;
 
 const ProjectContainer = styled.div`
-  display: flex;
-  justify-content: space-around;
-  gap: 30px;
-  overflow-x: auto;
-  white-space: nowrap;
-  width: 95%;
   backdrop-filter: blur(15px);
-  padding: 30px;
+  padding: 80px;
   border-radius: 10px;
   border: 1px solid rgba(255, 255, 255, 0.1);
+  display: grid;
+  grid-template-columns: 50% 50%;
+  row-gap: 60px;
+  column-gap: 60px;
+  height: auto;
 `;

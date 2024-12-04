@@ -15,7 +15,7 @@ interface TechnologyProps {
 
 const Technology = (props: TechnologyProps) => {
   const { tecInfo } = props;
-  const ICON_SIZE = 80;
+  const ICON_SIZE = 60;
 
   const [iconFill, setIconFill] = useState(WHITE);
 

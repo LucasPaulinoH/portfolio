@@ -6,11 +6,11 @@ import { PRIMARY_COLOR, SECONDARY_COLOR } from "../../theme/palette";
 
 interface ImageCarouselProps {
   imageUrls: string[];
-  size: number;
+  arrowIconSize: number;
 }
 
 const ImageCarousel = (props: ImageCarouselProps) => {
-  const { imageUrls, size } = props;
+  const { imageUrls, arrowIconSize: size } = props;
 
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
 
@@ -53,10 +53,10 @@ const ImageCarousel = (props: ImageCarouselProps) => {
             ))}
           </CarouselStepContainer>
           <LeftButtonContainer onClick={handlePreviousImageClick}>
-            <FaAngleLeft size={size} />
+            <FaAngleLeft size={size} fill={"rgba(0,0,0,0.3)"} />
           </LeftButtonContainer>
           <RightButtonContainer onClick={handleNextImageClick}>
-            <FaAngleRight size={size} />
+            <FaAngleRight size={size} fill={"rgba(0,0,0,0.3)"} />
           </RightButtonContainer>
         </>
       ) : null}
@@ -72,12 +72,13 @@ const styles = {
     height: "100%",
     display: "block",
     objectFit: "cover",
+    borderRadius: "8px",
   } as CSSProperties,
 };
 
 const Container = styled.div`
   width: 100%;
-  height: 200px;
+  height: 100%;
   aspect-ratio: 6/3;
   position: relative;
 `;

@@ -1,7 +1,7 @@
-export const PRIMARY_COLOR = "#FF6500";
-export const SECONDARY_COLOR = "#1E3E62";
+export const PRIMARY_COLOR = "#19A7CE";
+export const SECONDARY_COLOR = "#146C94";
 export const TERCIARY_COLOR = "#0B192C";
-export const WHITE = "#FFFFFF";
+export const WHITE = "#F6F1F1";
 
-export const BRIGHTER_GRADIENT_COLOR = "#F7DB6E";
-export const DARKER_GRADIENT_COLOR = "#DB2D09";
+export const BRIGHTER_GRADIENT_COLOR = "#AFD3E2";
+export const DARKER_GRADIENT_COLOR = "#146C94";

@@ -1,16 +1,18 @@
 import { IProjectCard } from "../../types/projects";
 import styled from "styled-components";
 import { shortenLargeTexts } from "../../utils/stringUtils";
-import { PRIMARY_COLOR } from "../../theme/palette";
 import { FONT_SIZES } from "../../utils/fontSizes";
+import ImageCarousel from "../imageCarousel";
 
 const ProjectCard = (props: IProjectCard) => {
-  const { images, title, description, technologies } = props;
+  const { images, title, description, technologies, link } = props;
 
   return (
     <CardContainer className="card">
-      <img src={images[0]} alt="preview img" />
-      <ContentContainer>
+      <ImageCarouselContainer>
+        <ImageCarousel imageUrls={images} arrowIconSize={30} />
+      </ImageCarouselContainer>
+      <ContentContainer href={link}>
         <h3 className="title">{title}</h3>
         <span>{shortenLargeTexts(description, 100)}</span>
         <TechnologiesContainer>
@@ -24,6 +26,10 @@ const ProjectCard = (props: IProjectCard) => {
 };
 
 export default ProjectCard;
+
+const ImageCarouselContainer = styled.a`
+  height: 250px;
+`;
 
 const CardContainer = styled.div`
   max-width: 320px;
@@ -44,10 +50,11 @@ const CardContainer = styled.div`
   }
 `;
 
-const ContentContainer = styled.div`
+const ContentContainer = styled.a`
   display: flex;
   flex-direction: column;
   gap: 14px;
+  text-decoration: none;
 `;
 
 const TechnologiesContainer = styled.div`

@@ -1,15 +1,17 @@
 import { useState } from "react";
-import { PRIMARY_COLOR, TERCIARY_COLOR, WHITE } from "../../theme/palette";
+import { PRIMARY_COLOR, WHITE } from "../../theme/palette";
 import { Link } from "react-scroll";
 import styled from "styled-components";
+import lpLogo from "../../assets/LP-logo.svg";
 
 const Navbar = () => {
   const [selectedSectionIndex, setSelectedSectionIndex] = useState(0);
 
   const NAVBAR_LABELS = [
+    { label: "Home", id: "home" },
     { label: "About me", id: "about-me" },
-    { label: "Technologies", id: "technologies" },
     { label: "Projects", id: "projects" },
+    { label: "Technologies", id: "technologies" },
     { label: "Contact", id: "contact" },
   ];
 
@@ -20,7 +22,11 @@ const Navbar = () => {
   return (
     <Container>
       <div className="logo-container">
-        <h2>LP</h2>
+        <img
+          src={lpLogo}
+          alt="LP logo"
+          style={{ width: "35px", height: "35px" }}
+        />
       </div>
       <div className="navbar-buttons-container">
         {NAVBAR_LABELS.map(({ label, id }, index) => (
@@ -36,6 +42,7 @@ const Navbar = () => {
               duration={500}
               onSetActive={() => setSelectedSectionIndex(index)}
               className="navbar-button"
+              offset={id === "projects" ? -110 : 0}
             >
               {label}
             </Link>
@@ -49,7 +56,7 @@ const Navbar = () => {
 export default Navbar;
 
 const Container = styled.div`
-  height: 64px;
+  height: 60px;
   width: 100%;
   align-self: start;
   display: flex;
@@ -58,8 +65,9 @@ const Container = styled.div`
   color: WHITE;
   position: fixed;
   z-index: 2;
-  background-color: rgba(11, 25, 44, 1);
+  backdrop-filter: blur(8px);
   font-weight: lighter;
+  background-color: rgba(36, 36, 36, 0.5);
 
   .navbar-buttons-container {
     display: flex;

@@ -3,47 +3,60 @@ export interface IProjectCard {
   title: string;
   description: string;
   technologies: string[];
+  link: string;
 }
-
-const images = [
-  "https://s3-alpha.figma.com/hub/file/3191449246/22f98b38-ccd9-4dbf-80c1-41d6ee983dc0-cover.png",
-  "https://miro.medium.com/v2/resize:fit:1200/1*ygwKSkZm99vBDJ8QFpXk4w.jpeg",
-];
 
 export const projects: IProjectCard[] = [
   {
-    images: images,
+    images: [
+      "https://drive.google.com/thumbnail?id=1eXcoRruJqYqax29_47gNfT4WbHONI7N8&sz=w1000",
+      "https://drive.google.com/thumbnail?id=1Ff_xz8OEexRl1YaqZdxOV73DYPFNnBec=w1000",
+    ],
     title: "Demandoria",
     description: "A marketplace for pet, beauty and turism services.",
     technologies: ["React JS", "TypeScript", "Firebase"],
+    link: "https://demandoria.com/",
   },
   {
-    images: images,
-    title: "Tarefando",
-    description:
-      "A mobile app for academic tasks tracking focus on primary education and tutoring.",
-    technologies: [
-      "React Native",
-      "TypeScript",
-      "Java",
-      "Spring Boot",
-      "PostgreSQL",
-      "Firebase",
+    images: [
+      "https://drive.google.com/thumbnail?id=1eXcoRruJqYqax29_47gNfT4WbHONI7N8&sz=w1000",
+      "https://drive.google.com/thumbnail?id=1Ff_xz8OEexRl1YaqZdxOV73DYPFNnBec=w1000",
     ],
+    title: "Tarefando App",
+    description:
+      "A mobile app for academic tasks tracking focus on primary education and tutoring.",
+    technologies: ["React Native", "TypeScript"],
+    link: "https://github.com/LucasPaulinoH/Tutoring-School-Mobile",
   },
-
   {
-    images: images,
+    images: [
+      "https://drive.google.com/thumbnail?id=1eXcoRruJqYqax29_47gNfT4WbHONI7N8&sz=w1000",
+      "https://drive.google.com/thumbnail?id=1Ff_xz8OEexRl1YaqZdxOV73DYPFNnBec=w1000",
+    ],
+    title: "Tarefando API",
+    description:
+      "A mobile app for academic tasks tracking focus on primary education and tutoring.",
+    technologies: ["Java", "Spring Boot", "PostgreSQL", "Firebase"],
+    link: "https://github.com/LucasPaulinoH/Tutoring-School-API",
+  },
+  {
+    images: [
+      "https://drive.google.com/thumbnail?id=1eXcoRruJqYqax29_47gNfT4WbHONI7N8&sz=w1000",
+      "https://drive.google.com/thumbnail?id=1Ff_xz8OEexRl1YaqZdxOV73DYPFNnBec=w1000",
+    ],
     title: "3DViewer",
-    description:
-      "A mobile app for academic tasks tracking focus on primary education and tutoring.",
-    technologies: ["C++"],
+    description: "DirectX app that provides 3d object transformations.",
+    technologies: ["C++", "DirectX"],
+    link: "https://github.com/LucasPaulinoH/3D-Viewer",
   },
   {
-    images: images,
+    images: [
+      "https://drive.google.com/thumbnail?id=1eXcoRruJqYqax29_47gNfT4WbHONI7N8&sz=w1000",
+      "https://drive.google.com/thumbnail?id=1Ff_xz8OEexRl1YaqZdxOV73DYPFNnBec=w1000",
+    ],
     title: "Image Playground",
-    description:
-      "A mobile app for academic tasks tracking focus on primary education and tutoring.",
+    description: "A web app that provides digital image processing techniques.",
     technologies: ["React JS", "TypeScript"],
+    link: "https://imageplaygroundlp.vercel.app/",
   },
 ];
