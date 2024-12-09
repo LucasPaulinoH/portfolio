@@ -34,9 +34,9 @@ const ImageCarousel = (props: ImageCarouselProps) => {
     <Container>
       <img
         src={imageUrls[currentImageIndex]}
-        alt={`${currentImageIndex + 1}`}
         loading="lazy"
         style={styles.image}
+        alt={`${currentImageIndex + 1}`}
       />
       {imageUrls.length > 1 ? (
         <>

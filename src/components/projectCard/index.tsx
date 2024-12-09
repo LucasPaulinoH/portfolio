@@ -28,7 +28,8 @@ const ProjectCard = (props: IProjectCard) => {
 export default ProjectCard;
 
 const ImageCarouselContainer = styled.a`
-  height: 250px;
+  height: 300px;
+  width: 330px;
 `;
 
 const CardContainer = styled.div`

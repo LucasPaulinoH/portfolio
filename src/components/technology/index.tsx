@@ -24,7 +24,7 @@ const Technology = (props: TechnologyProps) => {
       href={tecInfo.link}
       className="container"
       style={{ "--hover-color": PRIMARY_COLOR } as CSSProperties}
-      onMouseEnter={() => setIconFill("url(#linear-gradient)")} // Altera para o gradiente no hover
+      onMouseEnter={() => setIconFill("url(#linear-gradient)")}
       onMouseLeave={() => setIconFill(WHITE)}
     >
       <svg width={0} height={0}>

@@ -1,6 +1,8 @@
 import { Dispatch, SetStateAction } from "react";
 import styled from "styled-components";
 import { Link } from "react-scroll";
+import { FaChevronDown } from "react-icons/fa";
+import { FaChevronUp } from "react-icons/fa";
 
 interface ExpandButtonProps {
   expandProjects: boolean;
@@ -11,19 +13,26 @@ const ExpandButton = (props: ExpandButtonProps) => {
   const { expandProjects, setExpandProjects } = props;
 
   return (
-    <Container onClick={() => setExpandProjects(!expandProjects)}>
-      {expandProjects === false ? (
-        <p className="expand-label">Mostrar mais</p>
+    <Container
+      onClick={() => setExpandProjects(!expandProjects)}
+      style={{ marginTop: !expandProjects ? "-51px" : 0 }}
+    >
+      {!expandProjects ? (
+        <h4 className="expand-label">
+          Mostrar mais <FaChevronDown className="expand-chevron" />
+        </h4>
       ) : (
         <Link
           to="projects"
           smooth
           spy
-          duration={400}
+          duration={500}
           offset={-110}
           onClick={() => setExpandProjects(false)}
         >
-          Mostrar menos
+          <h4 className="expand-label">
+            Mostrar menos <FaChevronUp className="expand-chevron" />
+          </h4>
         </Link>
       )}
     </Container>
@@ -34,13 +43,24 @@ export default ExpandButton;
 
 const Container = styled.div`
   cursor: pointer;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 20px;
+  z-index: 20;
+  background: none;
 
   .expand-label {
-    transition: all ease 0.2s;
+    transition: all ease 0.3s;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+  }
+
+  .expand-chevron {
+    fill: var(--white);
+    transition: all ease 0.3s;
+  }
+
+  &:hover .expand-chevron {
+    fill: var(--primary);
   }
 
   &:hover .expand-label {

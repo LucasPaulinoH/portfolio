@@ -91,7 +91,13 @@ function App() {
     <Section id="projects">
       <h1 style={{ fontSize: FONT_SIZES[2] }}>Main projects</h1>
 
-      <ProjectContainer>
+      <ProjectContainer
+        style={{
+          maskImage: !expandProjects
+            ? "linear-gradient(to bottom,rgba(0, 0, 0, 1) 75%, rgba(0, 0, 0, 0) 100%)"
+            : "none",
+        }}
+      >
         {projects
           .filter((_, index) => (expandProjects === false ? index < 2 : _))
           .map((project, index) => (
@@ -115,24 +121,24 @@ function App() {
 
   const contactSection = (
     <Section id="contact">
-      <h1 style={{ fontSize: FONT_SIZES[2] }}>Contacts</h1>
-      <ContactsContainer>
+      <h1 style={{ fontSize: FONT_SIZES[2] }}>Connect with me</h1>
+      <ContactIconsContainer>
         <ContactCard
           icon={<MdOutlineEmail size={30} />}
-          content="lucaspaulinoh@hotmail.com"
+          content="Email"
           link="mailto:lucaspaulinoh@hotmail.com"
         />
         <ContactCard
           icon={<FiGithub size={30} />}
-          content="LucasPaulinoH"
+          content="GitHub"
           link="https://github.com/LucasPaulinoH"
         />
         <ContactCard
           icon={<FaLinkedinIn size={30} />}
-          content="lucas-paulino-6b174a15a"
+          content="Linkedin"
           link="https://www.linkedin.com/in/lucas-paulino-6b174a15a/"
         />
-      </ContactsContainer>
+      </ContactIconsContainer>
     </Section>
   );
 
@@ -190,6 +196,19 @@ const Section = styled.section`
   }
 `;
 
+const ProjectContainer = styled.div`
+  backdrop-filter: blur(2px);
+  border-radius: 10px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  display: grid;
+  grid-template-columns: 50% 50%;
+  padding: 80px;
+  align-items: center;
+  justify-content: center;
+  row-gap: 60px;
+  column-gap: 60px;
+`;
+
 const TechnologiesGrid = styled.div`
   width: 100%;
   display: grid;
@@ -198,7 +217,7 @@ const TechnologiesGrid = styled.div`
   column-gap: 5px;
 `;
 
-const ContactsContainer = styled.div`
+const ContactIconsContainer = styled.div`
   width: 100%;
   display: flex;
   justify-content: center;
@@ -207,17 +226,6 @@ const ContactsContainer = styled.div`
 
   @media (max-width: 750px) {
     flex-direction: column;
+    align-items: center;
   }
-`;
-
-const ProjectContainer = styled.div`
-  backdrop-filter: blur(15px);
-  padding: 80px;
-  border-radius: 10px;
-  border: 1px solid rgba(255, 255, 255, 0.1);
-  display: grid;
-  grid-template-columns: 50% 50%;
-  row-gap: 60px;
-  column-gap: 60px;
-  height: auto;
 `;

@@ -34,7 +34,7 @@ const Navbar = () => {
             <Link
               style={{
                 color: isbuttonSelected(index) ? PRIMARY_COLOR : WHITE,
-                fontWeight: isbuttonSelected(index) ? "bold" : "normal",
+                fontWeight: "normal",
               }}
               to={id}
               spy

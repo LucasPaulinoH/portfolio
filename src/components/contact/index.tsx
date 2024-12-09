@@ -1,5 +1,6 @@
 import { ReactNode } from "react";
 import styled from "styled-components";
+import { PRIMARY_COLOR } from "../../theme/palette";
 
 interface ContactCardProps {
   content: string;
@@ -14,7 +15,7 @@ const ContactCard = (props: ContactCardProps) => {
     <Link href={link}>
       <Container className="container">
         <Icon className="icon">{icon}</Icon>
-        <p>{content}</p>
+        <span className="text">{content}</span>
       </Container>
     </Link>
   );
@@ -24,29 +25,39 @@ export default ContactCard;
 
 const Container = styled.div`
   display: flex;
-  flex-direction: column;
+  justify-content: center;
   align-items: center;
-  gap: 10;
-  text-decoration: none;
-  transition: transform 0.3s ease;
-  
-  .container:hover {
-    transform: scale(1.2);
+  cursor: pointer;
+  height: 50px;
+  width: 50px;
+  border-radius: 10px;
+  margin: 5px;
+  transition: 0.3s;
+  justify-content: center;
+
+  .text {
+    width: 0px;
+    overflow: hidden;
+    transition: 0.3s;
+    text-align: center;
+    margin-left: 5px;
+  }
+
+  &:hover {
+    width: 150px;
+    border-radius: 5px;
+  }
+
+  &:hover span {
+    padding: 2px;
+    width: 80px;
   }
 `;
 
 const Icon = styled.div`
-  width: 70px;
-  height: 70px;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  margin: 20px 0px;
-  backdrop-filter: blur(5px);
+  transition-duration: 0.3s;
 `;
 
 const Link = styled.a`
   text-decoration: none;
-  color: inherit;
 `;
