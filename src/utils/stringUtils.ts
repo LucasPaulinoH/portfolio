@@ -6,3 +6,4 @@ export const shortenLargeTexts = (text: string, limitIndex: number): string => {
 
   return shortVersion;
 };
+

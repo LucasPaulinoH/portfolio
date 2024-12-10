@@ -11,10 +11,9 @@ const Navbar = () => {
 
   const NAVBAR_LABELS = [
     { label: "Home", id: "home" },
-    { label: "About me", id: "about-me" },
     { label: "Projects", id: "projects" },
     { label: "Technologies", id: "technologies" },
-    { label: "Contact", id: "contact" },
+    { label: "About me", id: "about-me" },
   ];
 
   const isbuttonSelected = (index: number) => {
@@ -53,7 +52,7 @@ const Navbar = () => {
                 setShowMenu(false);
               }}
               className="navbar-button"
-              offset={id === "projects" ? -110 : 0}
+              offset={id === "projects" ? -110 : id === "projects" ? -150 : 0}
             >
               {label}
             </Link>

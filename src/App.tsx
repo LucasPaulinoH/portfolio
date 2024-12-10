@@ -20,13 +20,14 @@ import {
 import GlobalStyles from "./theme/globalStyles";
 import { useState } from "react";
 import ExpandButton from "./components/expandButton";
+import personalPhoto from "./assets/personalPhoto.png";
 
 function App() {
   const [expandProjects, setExpandProjects] = useState(false);
 
   const presentationSection = (
     <Section id="home" style={{ gap: "10px" }}>
-      <div style={{ textAlign: "center", margin: "0px 30px" }}>
+      <div style={{ textAlign: "center", margin: "0px 50px" }}>
         <h1 style={{ fontSize: FONT_SIZES[0] }}>
           Hello there, i'm{" "}
           <span
@@ -42,7 +43,7 @@ function App() {
 
         <div className="subtitle-container">
           <h1 style={{ fontSize: FONT_SIZES[1], fontWeight: "normal" }}>
-            Computer scientist based in Brazil
+            Software developer based in Brazil
           </h1>
         </div>
       </div>
@@ -51,34 +52,44 @@ function App() {
   );
 
   const aboutMeSection = (
-    <Section id="about-me">
-      <h1 style={{ fontSize: FONT_SIZES[2] }}>About me</h1>
+    <Section id="about-me" className="about-me">
+      <h1 style={{ fontSize: FONT_SIZES[2] }}>Who am i?</h1>
       <AboutMeContainer>
-        <p>
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce
-          sollicitudin vulputate dolor, vitae porta dolor aliquet quis.
-          Vestibulum euismod sed elit at cursus. Pellentesque auctor tincidunt
-          tempor. Nam a odio eu ante aliquet porta sit amet eu ligula. Sed
-          placerat auctor sodales. Aenean ut dui at dui lacinia egestas sit amet
-          sed eros. Quisque luctus auctor neque sed blandit. Morbi eget rutrum
-          arcu. Praesent vitae nibh egestas, porttitor dolor sit amet, tincidunt
-          dui. Nam tempor ex ut rutrum dapibus. Maecenas sed eros a leo suscipit
-          placerat quis a mauris. Duis quis purus nec eros hendrerit luctus ac a
-          enim. Phasellus mattis neque metus, ut mattis purus eleifend sit amet.
-          Nunc efficitur scelerisque odio, sed pellentesque lectus rutrum quis.
-          Pellentesque egestas gravida quam quis lacinia. Nulla malesuada massa
-          ante, mollis eleifend ligula rutrum at.
-        </p>
+        <LucasImg src={personalPhoto} alt="Lucas Paulino" />
+        <AboutMeText>
+          <p>
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce
+            sollicitudin vulputate dolor, vitae porta dolor aliquet quis.
+            Vestibulum euismod sed elit at cursus. Pellentesque auctor tincidunt
+            tempor. Nam a odio eu ante aliquet porta sit amet eu ligula. Sed
+            placerat auctor sodales. Aenean ut dui at dui lacinia egestas sit
+            amet sed eros.
+          </p>
+          <ContactIconsContainer>
+            <ContactCard
+              icon={<MdOutlineEmail size={30} />}
+              content="Email"
+              link="mailto:lucaspaulinoh@hotmail.com"
+            />
+            <ContactCard
+              icon={<FiGithub size={30} />}
+              content="GitHub"
+              link="https://github.com/LucasPaulinoH"
+            />
+            <ContactCard
+              icon={<FaLinkedinIn size={30} />}
+              content="Linkedin"
+              link="https://www.linkedin.com/in/lucas-paulino-6b174a15a/"
+            />
+          </ContactIconsContainer>
+        </AboutMeText>
       </AboutMeContainer>
     </Section>
   );
 
   const technologiesSection = (
-    <Section
-      id="technologies"
-      className="technologies"
-    >
-      <h1 style={{ fontSize: FONT_SIZES[2] }}>Technologies</h1>
+    <Section id="technologies" className="technologies">
+      <h1 style={{ fontSize: FONT_SIZES[2] }}>Technology stack</h1>
       <TechnologiesGrid style={{ width: "80%" }}>
         {TECHNOLOGY_ICONS.map((item, index) => (
           <Technology tecInfo={item} key={index} />
@@ -119,29 +130,6 @@ function App() {
     </Section>
   );
 
-  const contactSection = (
-    <Section id="contact">
-      <h1 style={{ fontSize: FONT_SIZES[2] }}>Connect with me</h1>
-      <ContactIconsContainer>
-        <ContactCard
-          icon={<MdOutlineEmail size={30} />}
-          content="Email"
-          link="mailto:lucaspaulinoh@hotmail.com"
-        />
-        <ContactCard
-          icon={<FiGithub size={30} />}
-          content="GitHub"
-          link="https://github.com/LucasPaulinoH"
-        />
-        <ContactCard
-          icon={<FaLinkedinIn size={30} />}
-          content="Linkedin"
-          link="https://www.linkedin.com/in/lucas-paulino-6b174a15a/"
-        />
-      </ContactIconsContainer>
-    </Section>
-  );
-
   return (
     <Main>
       <GlobalStyles />
@@ -156,10 +144,9 @@ function App() {
       <div className="content" style={{ fontSize: FONT_SIZES[3] }}>
         <Navbar />
         {presentationSection}
-        {aboutMeSection}
         {projectsSection}
         {technologiesSection}
-        {contactSection}
+        {aboutMeSection}
         <Footer />
       </div>
     </Main>
@@ -174,13 +161,19 @@ const Main = styled.div`
   }
   overflow: hidden;
 
-  .technologies{
+  .technologies {
     margin-top: 80px;
     margin-bottom: -200px;
 
     @media (max-width: 1000px) {
       margin-top: 200px;
       margin-bottom: 50px;
+    }
+  }
+
+  .about-me {
+    @media (max-width: 1100px) {
+      margin-top: 120px;
     }
   }
 `;
@@ -192,7 +185,7 @@ const Section = styled.section`
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  gap: 40px;
+  gap: 50px;
 
   .subtitle-container {
     display: flex;
@@ -207,8 +200,36 @@ const Section = styled.section`
 `;
 
 const AboutMeContainer = styled.div`
-  margin: 0px 30px;
+  margin: 0px 50px;
   text-align: justify;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 70px;
+
+  @media (max-width: 1100px) {
+    flex-direction: column;
+    margin-bottom: 150px;
+  }
+`;
+
+const AboutMeText = styled.div`
+  width: 40%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  gap: 50px;
+
+  @media (max-width: 700px) {
+    width: 100%;
+  }
+`;
+
+const LucasImg = styled.img`
+  height: 300px;
+  width: 250px;
+  border-radius: 20%;
+  object-fit: cover;
 `;
 
 const ProjectContainer = styled.div`
@@ -241,10 +262,4 @@ const ContactIconsContainer = styled.div`
   display: flex;
   justify-content: center;
   gap: 100px;
-  margin-top: 50px;
-
-  @media (max-width: 750px) {
-    flex-direction: column;
-    align-items: center;
-  }
 `;

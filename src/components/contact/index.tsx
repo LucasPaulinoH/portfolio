@@ -1,6 +1,5 @@
 import { ReactNode } from "react";
 import styled from "styled-components";
-import { PRIMARY_COLOR } from "../../theme/palette";
 
 interface ContactCardProps {
   content: string;
@@ -24,32 +23,29 @@ const ContactCard = (props: ContactCardProps) => {
 export default ContactCard;
 
 const Container = styled.div`
-  display: flex;
-  justify-content: center;
-  align-items: center;
   cursor: pointer;
   height: 50px;
   width: 50px;
   border-radius: 10px;
-  margin: 5px;
   transition: 0.3s;
+  display: flex;
   justify-content: center;
+  align-items: center;
 
   .text {
     width: 0px;
     overflow: hidden;
-    transition: 0.3s;
+    transition: all ease 0.3s;
     text-align: center;
-    margin-left: 5px;
+    padding-left: 5px;
   }
 
   &:hover {
     width: 150px;
-    border-radius: 5px;
+    border-radius: 10px;
   }
 
   &:hover span {
-    padding: 2px;
     width: 80px;
   }
 `;
