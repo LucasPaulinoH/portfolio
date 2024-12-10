@@ -11,7 +11,6 @@ import ProjectCard from "./components/projectCard";
 import { TECHNOLOGY_ICONS } from "./types/technologyIcons";
 import Technology from "./components/technology";
 import { FONT_SIZES } from "./utils/fontSizes";
-import { GiBrazilFlag } from "react-icons/gi";
 import ReadCVButton from "./components/readCvButton";
 import {
   BRIGHTER_GRADIENT_COLOR,
@@ -27,7 +26,7 @@ function App() {
 
   const presentationSection = (
     <Section id="home" style={{ gap: "10px" }}>
-      <div>
+      <div style={{ textAlign: "center", margin: "0px 30px" }}>
         <h1 style={{ fontSize: FONT_SIZES[0] }}>
           Hello there, i'm{" "}
           <span
@@ -35,7 +34,6 @@ function App() {
               background: `linear-gradient(155deg, ${BRIGHTER_GRADIENT_COLOR}, ${PRIMARY_COLOR} 50%, ${DARKER_GRADIENT_COLOR})`,
               WebkitBackgroundClip: "text",
               WebkitTextFillColor: "transparent",
-              display: "inline-block",
             }}
           >
             Lucas Paulino
@@ -46,7 +44,6 @@ function App() {
           <h1 style={{ fontSize: FONT_SIZES[1], fontWeight: "normal" }}>
             Computer scientist based in Brazil
           </h1>
-          <GiBrazilFlag size={35} />
         </div>
       </div>
       <ReadCVButton />
@@ -56,7 +53,7 @@ function App() {
   const aboutMeSection = (
     <Section id="about-me">
       <h1 style={{ fontSize: FONT_SIZES[2] }}>About me</h1>
-      <div>
+      <AboutMeContainer>
         <p>
           Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce
           sollicitudin vulputate dolor, vitae porta dolor aliquet quis.
@@ -72,12 +69,15 @@ function App() {
           Pellentesque egestas gravida quam quis lacinia. Nulla malesuada massa
           ante, mollis eleifend ligula rutrum at.
         </p>
-      </div>
+      </AboutMeContainer>
     </Section>
   );
 
   const technologiesSection = (
-    <Section id="technologies">
+    <Section
+      id="technologies"
+      className="technologies"
+    >
       <h1 style={{ fontSize: FONT_SIZES[2] }}>Technologies</h1>
       <TechnologiesGrid style={{ width: "80%" }}>
         {TECHNOLOGY_ICONS.map((item, index) => (
@@ -173,6 +173,16 @@ const Main = styled.div`
     display: none;
   }
   overflow: hidden;
+
+  .technologies{
+    margin-top: 80px;
+    margin-bottom: -200px;
+
+    @media (max-width: 1000px) {
+      margin-top: 200px;
+      margin-bottom: 50px;
+    }
+  }
 `;
 
 const Section = styled.section`
@@ -196,6 +206,11 @@ const Section = styled.section`
   }
 `;
 
+const AboutMeContainer = styled.div`
+  margin: 0px 30px;
+  text-align: justify;
+`;
+
 const ProjectContainer = styled.div`
   backdrop-filter: blur(2px);
   border-radius: 10px;
@@ -207,6 +222,10 @@ const ProjectContainer = styled.div`
   justify-content: center;
   row-gap: 60px;
   column-gap: 60px;
+
+  @media (max-width: 880px) {
+    grid-template-columns: 100%;
+  }
 `;
 
 const TechnologiesGrid = styled.div`

@@ -2,6 +2,8 @@ import demandoria1 from "../assets/projects/demandoria/search.png";
 import demandoria2 from "../assets/projects/demandoria/service.png";
 import demandoria3 from "../assets/projects/demandoria/login.png";
 import tarefando1 from "../assets/projects/tarefando/app.png";
+import treeDViewer1 from "../assets/projects/3dViewer/3d-viewer1.png";
+import treeDViewer2 from "../assets/projects/3dViewer/3d-viewer2.png";
 
 export interface IProjectCard {
   images: string[];
@@ -36,7 +38,7 @@ export const projects: IProjectCard[] = [
     link: "https://github.com/LucasPaulinoH/Tutoring-School-API",
   },
   {
-    images: [demandoria1, demandoria2],
+    images: [treeDViewer1, treeDViewer2],
     title: "3DViewer",
     description: "DirectX app that provides 3d object transformations.",
     technologies: ["C++", "DirectX"],

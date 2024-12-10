@@ -43,7 +43,7 @@ export default ExpandButton;
 
 const Container = styled.div`
   cursor: pointer;
-  z-index: 20;
+  z-index: 1;
   background: none;
 
   .expand-label {
