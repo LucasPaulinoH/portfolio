@@ -80,7 +80,7 @@ const Container = styled.div`
   z-index: 2;
   backdrop-filter: blur(8px);
   font-weight: lighter;
-  background-color: rgba(36, 36, 36, 0.5);
+  background-color: rgba(36, 36, 36, 0.3);
 
   .menu-button {
     cursor: pointer;

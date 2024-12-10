@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import backgroundVideo from "./assets/background.mp4";
+import backgroundVideo from "./assets/background2.mp4";
 import Navbar from "./components/navbar";
 import ContactCard from "./components/contact";
 import { FaLinkedinIn } from "react-icons/fa";
@@ -163,7 +163,7 @@ const Main = styled.div`
 
   .technologies {
     margin-top: 80px;
-    margin-bottom: -200px;
+    margin-bottom: -150px;
 
     @media (max-width: 1000px) {
       margin-top: 200px;
@@ -228,7 +228,7 @@ const AboutMeText = styled.div`
 const LucasImg = styled.img`
   height: 300px;
   width: 250px;
-  border-radius: 20%;
+  border-radius: 12%;
   object-fit: cover;
 `;
 
