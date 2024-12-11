@@ -4,6 +4,7 @@ import demandoria3 from "../assets/projects/demandoria/login.png";
 import tarefando1 from "../assets/projects/tarefando/app.png";
 import treeDViewer1 from "../assets/projects/3dViewer/3d-viewer1.png";
 import treeDViewer2 from "../assets/projects/3dViewer/3d-viewer2.png";
+import ip1 from "../assets/projects/image-playground/ip1.png";
 
 export interface IProjectCard {
   images: string[];
@@ -45,7 +46,7 @@ export const projects: IProjectCard[] = [
     link: "https://github.com/LucasPaulinoH/3D-Viewer",
   },
   {
-    images: [tarefando1],
+    images: [ip1],
     title: "Image Playground",
     description: "A web app that provides digital image processing techniques.",
     technologies: ["React JS", "TypeScript"],

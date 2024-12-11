@@ -53,10 +53,10 @@ const ImageCarousel = (props: ImageCarouselProps) => {
             ))}
           </CarouselStepContainer>
           <LeftButtonContainer onClick={handlePreviousImageClick}>
-            <FaAngleLeft size={size} fill={"rgba(0,0,0,0.3)"} />
+            <FaAngleLeft size={size} className="carousel-icon" />
           </LeftButtonContainer>
           <RightButtonContainer onClick={handleNextImageClick}>
-            <FaAngleRight size={size} fill={"rgba(0,0,0,0.3)"} />
+            <FaAngleRight size={size} className="carousel-icon" />
           </RightButtonContainer>
         </>
       ) : null}
@@ -93,17 +93,27 @@ const CarouselStepContainer = styled.div`
 
 const LeftButtonContainer = styled.div`
   position: absolute;
-
   top: 50%;
   transform: translateY(-50%);
   display: flex;
-  padding: 5px;
   justify-content: center;
   align-items: center;
   left: 5px;
+  transition: all ease 0.15s;
+  border-radius: 50%;
+  background-color: rgba(255,255,255,0.85);
+  padding: 0;
 
-  :hover {
-    background-color: rgba(0, 0, 0, 0.2);
+  .carousel-icon {
+    fill: var(--primary);
+
+    &:hover {
+      fill: var(--white);
+    }
+  }
+
+  &:hover {
+    background-color: var(--shadow-hover);
     border-radius: 50%;
   }
   cursor: pointer;
@@ -111,17 +121,27 @@ const LeftButtonContainer = styled.div`
 
 const RightButtonContainer = styled.div`
   position: absolute;
-
   top: 50%;
   transform: translateY(-50%);
   display: flex;
-  padding: 5px;
   justify-content: center;
   align-items: center;
   right: 5px;
+  border-radius: 50%;
+  transition: all ease 0.15s;
+  background-color: rgba(255,255,255,0.8);
+  padding: 0;
 
-  :hover {
-    background-color: rgba(0, 0, 0, 0.2);
+  .carousel-icon {
+    fill: var(--primary);
+
+    &:hover {
+      fill: var(--white);
+    }
+  }
+
+  &:hover {
+    background-color: var(--shadow-hover);
     border-radius: 50%;
   }
   cursor: pointer;

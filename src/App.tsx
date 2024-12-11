@@ -28,7 +28,7 @@ function App() {
   const presentationSection = (
     <Section id="home" style={{ gap: "10px" }}>
       <div style={{ textAlign: "center", margin: "0px 50px" }}>
-        <h1 style={{ fontSize: FONT_SIZES[0] }}>
+        <h1 className="presentation-title">
           Hello there, i'm{" "}
           <span
             style={{
@@ -42,8 +42,8 @@ function App() {
         </h1>
 
         <div className="subtitle-container">
-          <h1 style={{ fontSize: FONT_SIZES[1], fontWeight: "normal" }}>
-            Software developer based in Brazil
+          <h1 className="presentation-subtitle">
+            Full-stack developer based in Brazil
           </h1>
         </div>
       </div>
@@ -58,12 +58,10 @@ function App() {
         <LucasImg src={personalPhoto} alt="Lucas Paulino" />
         <AboutMeText>
           <p>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce
-            sollicitudin vulputate dolor, vitae porta dolor aliquet quis.
-            Vestibulum euismod sed elit at cursus. Pellentesque auctor tincidunt
-            tempor. Nam a odio eu ante aliquet porta sit amet eu ligula. Sed
-            placerat auctor sodales. Aenean ut dui at dui lacinia egestas sit
-            amet sed eros.
+            A versatile full-stack web developer with expertise ranging from
+            low-level programming in C++ and Java to creating responsive web and
+            mobile applications. I pride myself on being a fast learner who
+            adapts to new technologies and evolving project requirements.
           </p>
           <ContactIconsContainer>
             <ContactCard
@@ -191,6 +189,24 @@ const Section = styled.section`
     display: flex;
     align-items: center;
     gap: 10px;
+    margin-top: 10px;
+  }
+
+  .presentation-title {
+    font-size: ${FONT_SIZES[0]};
+
+    @media (max-width: 600px) {
+      font-size: ${FONT_SIZES[1]};
+    }
+  }
+
+  .presentation-subtitle {
+    font-size: ${FONT_SIZES[1]};
+    font-weight: normal;
+
+    @media (max-width: 600px) {
+      font-size: ${FONT_SIZES[2]};
+    }
   }
 
   .self-description-container {
