@@ -2,6 +2,7 @@ import demandoria1 from "../assets/projects/demandoria/search.png";
 import demandoria2 from "../assets/projects/demandoria/service.png";
 import demandoria3 from "../assets/projects/demandoria/login.png";
 import tarefando1 from "../assets/projects/tarefando/app.png";
+import tarefando2 from "../assets/projects/tarefando/api.png";
 import treeDViewer1 from "../assets/projects/3dViewer/3d-viewer1.png";
 import treeDViewer2 from "../assets/projects/3dViewer/3d-viewer2.png";
 import ip1 from "../assets/projects/image-playground/ip1.png";
@@ -31,7 +32,7 @@ export const projects: IProjectCard[] = [
     link: "https://github.com/LucasPaulinoH/Tutoring-School-Mobile",
   },
   {
-    images: [tarefando1],
+    images: [tarefando2],
     title: "Tarefando API",
     description:
       "A mobile app for academic tasks tracking focus on primary education and tutoring.",

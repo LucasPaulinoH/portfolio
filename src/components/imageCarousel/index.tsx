@@ -101,11 +101,13 @@ const LeftButtonContainer = styled.div`
   left: 5px;
   transition: all ease 0.15s;
   border-radius: 50%;
-  background-color: rgba(255,255,255,0.85);
+  background-color: rgba(255, 255, 255, 0.85);
   padding: 0;
 
   .carousel-icon {
     fill: var(--primary);
+    width: 25px;
+    height: 25px;
 
     &:hover {
       fill: var(--white);
@@ -129,11 +131,13 @@ const RightButtonContainer = styled.div`
   right: 5px;
   border-radius: 50%;
   transition: all ease 0.15s;
-  background-color: rgba(255,255,255,0.8);
+  background-color: rgba(255, 255, 255, 0.8);
   padding: 0;
 
   .carousel-icon {
     fill: var(--primary);
+    width: 25px;
+    height: 25px;
 
     &:hover {
       fill: var(--white);
