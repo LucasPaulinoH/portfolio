@@ -222,6 +222,7 @@ const AboutMeContainer = styled.div`
   align-items: center;
   justify-content: center;
   gap: 70px;
+  width: 80%;
 
   @media (max-width: 1100px) {
     flex-direction: column;
@@ -230,11 +231,12 @@ const AboutMeContainer = styled.div`
 `;
 
 const AboutMeText = styled.div`
-  width: 40%;
   display: flex;
   flex-direction: column;
   justify-content: space-evenly;
   gap: 50px;
+  width: 70%;
+  line-height: 1.5;
 
   @media (max-width: 1100px) {
     width: 70%;
@@ -260,6 +262,7 @@ const ProjectContainer = styled.div`
   padding: 80px;
   gap: 80px;
   grid-template-columns: 320px 320px;
+  line-height: 1.3;
 
   @media (max-width: 880px) {
     grid-template-columns: 100%;

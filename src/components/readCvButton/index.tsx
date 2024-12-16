@@ -10,7 +10,7 @@ const ReadCVButton = () => {
           <div className="shuttle-icon">
             <FaSpaceShuttle size={25} />
           </div>
-          <span>Read CV</span>
+          <p>Read CV</p>
         </h2>
       </button>
     </ButtonContainer>
@@ -41,6 +41,7 @@ const ButtonContainer = styled.a`
     transition: all 0.2s;
     font-size: ${FONT_SIZES[3]};
     margin-top: 40px;
+    font-weight: normal;
   }
 
   button:active,
