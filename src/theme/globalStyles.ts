@@ -3,6 +3,7 @@ import {
   BRIGHTER_GRADIENT_COLOR,
   DARKER_GRADIENT_COLOR,
   PRIMARY_COLOR,
+  QUATERNARY_COLOR,
   SECONDARY_COLOR,
   TERCIARY_COLOR,
   WHITE,
@@ -15,6 +16,7 @@ const GlobalStyles = createGlobalStyle`
     --gradient-end: ${DARKER_GRADIENT_COLOR};
     --terciary: ${TERCIARY_COLOR};
     --secondary: ${SECONDARY_COLOR};
+    --quaternary: ${QUATERNARY_COLOR};
     --white: ${WHITE};
     --shadow: rgba(25, 167, 206, 0.5);
     --shadow-hover: rgba(25, 167, 206, 0.7);

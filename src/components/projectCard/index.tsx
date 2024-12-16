@@ -29,7 +29,7 @@ export default ProjectCard;
 
 const ImageCarouselContainer = styled.a`
   height: 300px;
-  width: 330px;
+  width: 100%;
 `;
 
 const CardContainer = styled.div`

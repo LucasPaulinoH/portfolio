@@ -23,7 +23,25 @@ video {
 }
 
 .content {
-  background-color: rgba(12, 21, 34, 0.75);
+ z-index: 0;
+ width: 100%;
+ height: 100%;
+ background-color: rgba(30, 30, 30, 0.7);
 }
 
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--terciary);
+}
+::-webkit-scrollbar-thumb {
+  background: var(--primary);
+  border-radius: 15px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--quaternary);
+}
 

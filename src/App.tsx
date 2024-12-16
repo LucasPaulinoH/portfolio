@@ -253,12 +253,9 @@ const ProjectContainer = styled.div`
   border-radius: 10px;
   border: 1px solid rgba(255, 255, 255, 0.1);
   display: grid;
-  grid-template-columns: 50% 50%;
   padding: 80px;
-  align-items: center;
-  justify-content: center;
-  row-gap: 60px;
-  column-gap: 60px;
+  gap: 80px;
+  grid-template-columns: 320px 320px;
 
   @media (max-width: 880px) {
     grid-template-columns: 100%;
