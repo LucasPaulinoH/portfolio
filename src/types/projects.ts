@@ -42,14 +42,14 @@ export const projects: IProjectCard[] = [
     images: [tarefando2],
     title: "Tarefando API",
     description:
-      "Tarefando app API.",
+      "Tarefando app REST API.",
     technologies: ["Java", "Spring Boot", "PostgreSQL", "Firebase"],
     link: "https://github.com/LucasPaulinoH/Tutoring-School-API",
   },
   {
     images: [treeDViewer1, treeDViewer2],
     title: "3DViewer",
-    description: "DirectX app that provides 3d object transformations.",
+    description: "DirectX app that provides 3D object transformations.",
     technologies: ["C++", "DirectX"],
     link: "https://github.com/LucasPaulinoH/3D-Viewer",
   },

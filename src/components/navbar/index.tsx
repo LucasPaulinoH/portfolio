@@ -41,7 +41,7 @@ const Navbar = () => {
             <Link
               style={{
                 color: isbuttonSelected(index) ? PRIMARY_COLOR : WHITE,
-                fontWeight: "normal",
+                fontWeight: isbuttonSelected(index) ? "bold" : "normal",
               }}
               to={id}
               spy
@@ -75,12 +75,17 @@ const Container = styled.div`
   display: flex;
   align-items: center;
   justify-content: space-around;
-  color: WHITE;
+  color: var(--white);
   position: fixed;
   z-index: 2;
   backdrop-filter: blur(10px);
-  font-weight: lighter;
+  font-weight: normal;
   background-color: rgba(20, 20, 20, 0.3);
+
+  .logo-container {
+    width: 35px;
+    height: 35px;
+  }
 
   .menu-button {
     cursor: pointer;
@@ -125,5 +130,6 @@ const Container = styled.div`
   .navbar-button {
     cursor: pointer;
     transition: color ease 0.2s;
+    text-rendering: optimizeLegibility;
   }
 `;
