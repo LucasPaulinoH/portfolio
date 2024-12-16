@@ -20,22 +20,29 @@ export const projects: IProjectCard[] = [
     images: [demandoria1, demandoria2, demandoria3],
     title: "Demandoria",
     description: "A marketplace for pet, beauty and turism services.",
-    technologies: ["React JS", "TypeScript", "Firebase"],
+    technologies: ["React JS", "TypeScript", "Firebase", "Material UI"],
     link: "https://demandoria.com/",
+  },
+  {
+    images: [ip1],
+    title: "Image Playground",
+    description: "A web app that provides digital image processing techniques.",
+    technologies: ["React JS", "TypeScript", "Material UI"],
+    link: "https://imageplaygroundlp.vercel.app/",
   },
   {
     images: [tarefando1],
     title: "Tarefando App",
     description:
       "A mobile app for academic tasks tracking focus on primary education and tutoring.",
-    technologies: ["React Native", "TypeScript"],
+    technologies: ["React Native", "TypeScript", "UI Kitten"],
     link: "https://github.com/LucasPaulinoH/Tutoring-School-Mobile",
   },
   {
     images: [tarefando2],
     title: "Tarefando API",
     description:
-      "A mobile app for academic tasks tracking focus on primary education and tutoring.",
+      "Tarefando app API.",
     technologies: ["Java", "Spring Boot", "PostgreSQL", "Firebase"],
     link: "https://github.com/LucasPaulinoH/Tutoring-School-API",
   },
@@ -45,12 +52,5 @@ export const projects: IProjectCard[] = [
     description: "DirectX app that provides 3d object transformations.",
     technologies: ["C++", "DirectX"],
     link: "https://github.com/LucasPaulinoH/3D-Viewer",
-  },
-  {
-    images: [ip1],
-    title: "Image Playground",
-    description: "A web app that provides digital image processing techniques.",
-    technologies: ["React JS", "TypeScript"],
-    link: "https://imageplaygroundlp.vercel.app/",
   },
 ];

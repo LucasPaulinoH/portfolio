@@ -8,6 +8,7 @@ import {
   SiPostgresql,
   SiFirebase,
   SiStyledcomponents,
+  SiMui,
 } from "react-icons/si";
 import { FaJava } from "react-icons/fa";
 import { IconType } from "react-icons";
@@ -52,6 +53,11 @@ export const TECHNOLOGY_ICONS: TecIcon[] = [
     name: "Firebase",
     icon: SiFirebase,
     link: "https://firebase.google.com/docs",
+  },
+  {
+    name: "Material UI",
+    icon: SiMui,
+    link: "https://mui.com/material-ui/getting-started/",
   },
   {
     name: "Styled Components",

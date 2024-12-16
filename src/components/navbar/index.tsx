@@ -114,7 +114,7 @@ const Container = styled.div`
 
     .navbar-buttons-container.active {
       right: 0;
-      background-color: rgba(4, 4, 33, 1);
+      background-color: var(--terciary);
     }
 
     .menu-button {

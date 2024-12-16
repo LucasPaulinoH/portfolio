@@ -12,7 +12,7 @@ const ProjectCard = (props: IProjectCard) => {
       <ImageCarouselContainer>
         <ImageCarousel imageUrls={images} arrowIconSize={30} />
       </ImageCarouselContainer>
-      <ContentContainer href={link}>
+      <ContentContainer href={link} target="_blank">
         <h3 className="title">{title}</h3>
         <span>{shortenLargeTexts(description, 100)}</span>
         <TechnologiesContainer>

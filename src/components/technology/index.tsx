@@ -26,6 +26,7 @@ const Technology = (props: TechnologyProps) => {
       style={{ "--hover-color": PRIMARY_COLOR } as CSSProperties}
       onMouseEnter={() => setIconFill("url(#linear-gradient)")}
       onMouseLeave={() => setIconFill(WHITE)}
+      target="_blank"
     >
       <svg width={0} height={0}>
         <linearGradient

@@ -58,10 +58,12 @@ function App() {
         <LucasImg src={personalPhoto} alt="Lucas Paulino" />
         <AboutMeText>
           <p>
-            A versatile full-stack web developer with expertise ranging from
-            low-level programming in C++ and Java to creating responsive web and
-            mobile applications. I pride myself on being a fast learner who
-            adapts to new technologies and evolving project requirements.
+            A versatile full-stack developer skilled in building responsive web
+            applications with React JS and TypeScript, developing REST APIs with
+            Spring Boot, and creating mobile apps with React Native. Proficient
+            in low-level programming with C++ and Java, I am a quick learner who
+            adapts seamlessly to new technologies and dynamic project
+            requirements.
           </p>
           <ContactIconsContainer>
             <ContactCard
@@ -221,7 +223,7 @@ const AboutMeContainer = styled.div`
   display: flex;
   align-items: center;
   justify-content: center;
-  gap: 70px;
+  gap: 50px;
   width: 80%;
 
   @media (max-width: 1100px) {
@@ -235,7 +237,7 @@ const AboutMeText = styled.div`
   flex-direction: column;
   justify-content: space-evenly;
   gap: 50px;
-  width: 70%;
+  width: 67%;
   line-height: 1.5;
 
   @media (max-width: 1100px) {
@@ -248,9 +250,10 @@ const AboutMeText = styled.div`
 `;
 
 const LucasImg = styled.img`
-  height: 300px;
+  height: 250px;
   width: 250px;
-  border-radius: 12%;
+  border-radius: 100%;
+  border: 5px solid var(--primary);
   object-fit: cover;
 `;
 
@@ -266,6 +269,7 @@ const ProjectContainer = styled.div`
 
   @media (max-width: 880px) {
     grid-template-columns: 100%;
+    padding: 50px;
   }
 `;
 
@@ -282,4 +286,8 @@ const ContactIconsContainer = styled.div`
   display: flex;
   justify-content: center;
   gap: 100px;
+
+  @media (max-width: 700px) {
+    gap: 45px
+  }
 `;
