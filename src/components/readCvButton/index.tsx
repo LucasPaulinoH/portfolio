@@ -21,8 +21,9 @@ export default ReadCVButton;
 
 const ButtonContainer = styled.a`
   text-decoration: none;
+  font-family: "Montserrat", sans-serif;
+
   button {
-    align-items: center;
     background: linear-gradient(
       155deg,
       var(--gradient-start),
@@ -33,20 +34,11 @@ const ButtonContainer = styled.a`
     border-radius: 100px;
     box-shadow: var(--shadow) 0 2px 30px 5px;
     box-sizing: border-box;
-    color: var(--white);
     display: flex;
-    justify-content: center;
-    line-height: 1em;
-    width: auto;
-    padding: 5px;
-    text-decoration: none;
-    user-select: none;
-    -webkit-user-select: none;
+    padding: 10px;
     touch-action: manipulation;
-    white-space: nowrap;
     cursor: pointer;
     transition: all 0.2s;
-    font-weight: bold;
     font-size: ${FONT_SIZES[3]};
     margin-top: 40px;
   }
@@ -58,14 +50,13 @@ const ButtonContainer = styled.a`
   }
 
   button h2 {
-    background-color: #040421;
+    background-color: var(--terciary);
     padding: 16px 24px;
     border-radius: 100px;
-    width: 100%;
-    height: 200%;
     transition: 300ms;
     display: flex;
     align-items: center;
+    justify-content: center;
     gap: 20px;
   }
 
@@ -78,6 +69,7 @@ const ButtonContainer = styled.a`
   }
 
   .shuttle-icon {
+    margin-top: 5px;
     transition: all ease 0.2s;
   }
 

@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import backgroundVideo from "./assets/background2.mp4";
+import backgroundVideo from "./assets/background.mp4";
 import Navbar from "./components/navbar";
 import ContactCard from "./components/contact";
 import { FaLinkedinIn } from "react-icons/fa";
@@ -236,8 +236,12 @@ const AboutMeText = styled.div`
   justify-content: space-evenly;
   gap: 50px;
 
+  @media (max-width: 1100px) {
+    width: 70%;
+  }
+
   @media (max-width: 700px) {
-    width: 100%;
+    width: 90%;
   }
 `;
 

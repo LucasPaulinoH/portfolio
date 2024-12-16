@@ -131,7 +131,7 @@ const RightButtonContainer = styled.div`
   right: 5px;
   border-radius: 50%;
   transition: all ease 0.15s;
-  background-color: rgba(255, 255, 255, 0.8);
+  background-color: rgba(255, 255, 255, 0.85);
   padding: 0;
 
   .carousel-icon {

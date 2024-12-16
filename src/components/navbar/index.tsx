@@ -78,9 +78,9 @@ const Container = styled.div`
   color: WHITE;
   position: fixed;
   z-index: 2;
-  backdrop-filter: blur(8px);
+  backdrop-filter: blur(10px);
   font-weight: lighter;
-  background-color: rgba(36, 36, 36, 0.3);
+  background-color: rgba(20, 20, 20, 0.3);
 
   .menu-button {
     cursor: pointer;
