@@ -29,14 +29,14 @@ export const projects: IProjectCard[] = [
     title: "Tarefando App",
     description:
       "A mobile app for academic tasks tracking focus on primary education and tutoring.",
-    technologies: ["React Native", "TypeScript", "UI Kitten"],
+    technologies: ["React Native", "TypeScript", "UI Kitten", "Firebase"],
     link: "https://github.com/LucasPaulinoH/Tutoring-School-Mobile",
   },
   {
     images: [tarefando2],
     title: "Tarefando API",
     description: "Tarefando app REST API.",
-    technologies: ["Java", "Spring Boot", "PostgreSQL", "Firebase"],
+    technologies: ["Java", "Spring Boot", "PostgreSQL"],
     link: "https://github.com/LucasPaulinoH/Tutoring-School-API",
   },
   {
