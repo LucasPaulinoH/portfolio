@@ -23,13 +23,7 @@ export const projects: IProjectCard[] = [
     technologies: ["React JS", "TypeScript", "Firebase", "Material UI"],
     link: "https://demandoria.com/",
   },
-  {
-    images: [ip1],
-    title: "Image Playground",
-    description: "A web app that provides digital image processing techniques.",
-    technologies: ["React JS", "TypeScript", "Material UI"],
-    link: "https://imageplaygroundlp.vercel.app/",
-  },
+
   {
     images: [tarefando1],
     title: "Tarefando App",
@@ -41,10 +35,16 @@ export const projects: IProjectCard[] = [
   {
     images: [tarefando2],
     title: "Tarefando API",
-    description:
-      "Tarefando app REST API.",
+    description: "Tarefando app REST API.",
     technologies: ["Java", "Spring Boot", "PostgreSQL", "Firebase"],
     link: "https://github.com/LucasPaulinoH/Tutoring-School-API",
+  },
+  {
+    images: [ip1],
+    title: "Image Playground",
+    description: "A web app that provides digital image processing techniques.",
+    technologies: ["React JS", "TypeScript", "Material UI"],
+    link: "https://imageplaygroundlp.vercel.app/",
   },
   {
     images: [treeDViewer1, treeDViewer2],
