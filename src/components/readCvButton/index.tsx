@@ -2,9 +2,12 @@ import { FaSpaceShuttle } from "react-icons/fa";
 import styled from "styled-components";
 import { FONT_SIZES } from "../../utils/fontSizes";
 
+const CURRICULUM_LINK =
+  "https://drive.google.com/drive/folders/1SdPhbAyMdBvWKSjUuJNmpH4z7ufXoSg1?usp=sharing";
+
 const ReadCVButton = () => {
   return (
-    <ButtonContainer href="https://github.com/LucasPaulinoH">
+    <ButtonContainer href={CURRICULUM_LINK} target="_blank">
       <button>
         <h2>
           <div className="shuttle-icon">

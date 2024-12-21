@@ -35,14 +35,14 @@ export const projects: IProjectCard[] = [
   {
     images: [tarefando2],
     title: "Tarefando API",
-    description: "Tarefando app REST API.",
+    description: "A REST API for integrated academic task management and tracking.",
     technologies: ["Java", "Spring Boot", "PostgreSQL"],
     link: "https://github.com/LucasPaulinoH/Tutoring-School-API",
   },
   {
     images: [ip1],
     title: "Image Playground",
-    description: "A web app that provides digital image processing techniques.",
+    description: "A web app that provides advanced digital image processing techniques.",
     technologies: ["React JS", "TypeScript", "Material UI"],
     link: "https://imageplaygroundlp.vercel.app/",
   },
