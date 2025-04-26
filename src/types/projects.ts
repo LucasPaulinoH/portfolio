@@ -19,7 +19,7 @@ export const projects: IProjectCard[] = [
   {
     images: [demandoria1, demandoria2, demandoria3],
     title: "Demandoria",
-    description: "A marketplace for pet, beauty and turism services.",
+    description: "A marketplace for pet and beauty services.",
     technologies: ["React JS", "TypeScript", "Firebase", "Material UI"],
     link: "https://demandoria.com/",
   },

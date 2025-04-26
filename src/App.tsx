@@ -43,7 +43,7 @@ function App() {
 
         <div className="subtitle-container">
           <h1 className="presentation-subtitle">
-            Full-stack developer based in Brazil
+            Software engineer based in Brazil
           </h1>
         </div>
       </div>
@@ -58,7 +58,7 @@ function App() {
         <LucasImg src={personalPhoto} alt="Lucas Paulino" />
         <AboutMeText>
           <p>
-            A versatile full-stack developer skilled in building responsive web
+            A versatile software engineer developer skilled in building responsive web
             applications with React JS and TypeScript, developing REST APIs with
             Spring Boot, and creating mobile apps with React Native. Proficient
             in low-level programming with C++ and Java, I am a quick learner who
