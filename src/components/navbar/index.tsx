@@ -4,21 +4,26 @@ import { Link } from "react-scroll";
 import styled from "styled-components";
 import lpLogo from "../../assets/LP-logo.svg";
 import { HiMiniBars3 } from "react-icons/hi2";
+import { useLanguage } from "../../hooks/useLanguage";
+import { useTranslation } from "react-i18next";
+import { GrLanguage } from "react-icons/gr";
 
 const Navbar = () => {
+  const { t } = useTranslation();
+
   const [selectedSectionIndex, setSelectedSectionIndex] = useState(0);
   const [showMenu, setShowMenu] = useState(false);
 
+  const { handleChangeLanguage } = useLanguage();
+
   const NAVBAR_LABELS = [
-    { label: "Home", id: "home" },
-    { label: "Projects", id: "projects" },
-    { label: "Technologies", id: "technologies" },
-    { label: "About me", id: "about-me" },
+    { label: t("navbar.home"), id: "home" },
+    { label: t("navbar.projects"), id: "projects" },
+    { label: t("navbar.technologies"), id: "technologies" },
+    { label: t("navbar.aboutMe"), id: "about-me" },
   ];
 
-  const isbuttonSelected = (index: number) => {
-    return index === selectedSectionIndex;
-  };
+  const isbuttonSelected = (index: number) => index === selectedSectionIndex;
 
   return (
     <Container>
@@ -29,6 +34,7 @@ const Navbar = () => {
           style={{ width: "35px", height: "35px" }}
         />
       </div>
+
       <div
         className={
           showMenu
@@ -58,7 +64,13 @@ const Navbar = () => {
             </Link>
           </div>
         ))}
+
+        <GrLanguage
+          onClick={handleChangeLanguage}
+          style={{ cursor: "pointer" }}
+        />
       </div>
+
       <div className="menu-button" onClick={() => setShowMenu(!showMenu)}>
         <HiMiniBars3 />
       </div>

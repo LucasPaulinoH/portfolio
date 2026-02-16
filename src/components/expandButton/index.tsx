@@ -3,6 +3,7 @@ import styled from "styled-components";
 import { Link } from "react-scroll";
 import { FaChevronDown } from "react-icons/fa";
 import { FaChevronUp } from "react-icons/fa";
+import { useTranslation } from "react-i18next";
 
 interface ExpandButtonProps {
   expandProjects: boolean;
@@ -10,6 +11,8 @@ interface ExpandButtonProps {
 }
 
 const ExpandButton = (props: ExpandButtonProps) => {
+  const { t } = useTranslation();
+
   const { expandProjects, setExpandProjects } = props;
 
   return (
@@ -19,7 +22,7 @@ const ExpandButton = (props: ExpandButtonProps) => {
     >
       {!expandProjects ? (
         <h4 className="expand-label">
-          Mostrar mais <FaChevronDown className="expand-chevron" />
+          {t("showMore")} <FaChevronDown className="expand-chevron" />
         </h4>
       ) : (
         <Link
@@ -31,7 +34,7 @@ const ExpandButton = (props: ExpandButtonProps) => {
           onClick={() => setExpandProjects(false)}
         >
           <h4 className="expand-label">
-            Mostrar menos <FaChevronUp className="expand-chevron" />
+            {t("showLess")} <FaChevronUp className="expand-chevron" />
           </h4>
         </Link>
       )}

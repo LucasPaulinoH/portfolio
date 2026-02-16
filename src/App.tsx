@@ -6,7 +6,6 @@ import { FaLinkedinIn } from "react-icons/fa";
 import { MdOutlineEmail } from "react-icons/md";
 import { FiGithub } from "react-icons/fi";
 import Footer from "./components/footer";
-import { projects } from "./types/projects";
 import ProjectCard from "./components/projectCard";
 import { TECHNOLOGY_ICONS } from "./types/technologyIcons";
 import Technology from "./components/technology";
@@ -21,15 +20,20 @@ import GlobalStyles from "./theme/globalStyles";
 import { useState } from "react";
 import ExpandButton from "./components/expandButton";
 import personalPhoto from "./assets/personalPhoto.png";
+import { useTranslation } from "react-i18next";
+import { useProjects } from "./hooks/useProjects";
 
 function App() {
   const [expandProjects, setExpandProjects] = useState(false);
+  const { t } = useTranslation();
+
+  const projects = useProjects();
 
   const presentationSection = (
     <Section id="home" style={{ gap: "10px" }}>
       <div style={{ textAlign: "center", margin: "0px 50px" }}>
         <h1 className="presentation-title">
-          Hello there, i'm{" "}
+          {`${t("introduction")} `}
           <span
             style={{
               background: `linear-gradient(155deg, ${BRIGHTER_GRADIENT_COLOR}, ${PRIMARY_COLOR} 50%, ${DARKER_GRADIENT_COLOR})`,
@@ -42,29 +46,22 @@ function App() {
         </h1>
 
         <div className="subtitle-container">
-          <h1 className="presentation-subtitle">
-            Software engineer based in Brazil
-          </h1>
+          <h1 className="presentation-subtitle">{t("attribuition")}</h1>
         </div>
       </div>
+
       <ReadCVButton />
     </Section>
   );
 
   const aboutMeSection = (
     <Section id="about-me" className="about-me">
-      <h1 style={{ fontSize: FONT_SIZES[2] }}>Who am i?</h1>
+      <h1 style={{ fontSize: FONT_SIZES[2] }}>{t("whoAmI")}</h1>
+
       <AboutMeContainer>
         <LucasImg src={personalPhoto} alt="Lucas Paulino" />
         <AboutMeText>
-          <p>
-            A versatile software engineer developer skilled in building responsive web
-            applications with React JS and TypeScript, developing REST APIs with
-            Spring Boot, and creating mobile apps with React Native. Proficient
-            in low-level programming with C++ and Java, I am a quick learner who
-            adapts seamlessly to new technologies and dynamic project
-            requirements.
-          </p>
+          <p>{t("about")}</p>
           <ContactIconsContainer>
             <ContactCard
               icon={<MdOutlineEmail size={30} />}
@@ -89,7 +86,8 @@ function App() {
 
   const technologiesSection = (
     <Section id="technologies" className="technologies">
-      <h1 style={{ fontSize: FONT_SIZES[2] }}>Technology stack</h1>
+      <h1 style={{ fontSize: FONT_SIZES[2] }}>{t("technologyStack")}</h1>
+
       <TechnologiesGrid style={{ width: "80%" }}>
         {TECHNOLOGY_ICONS.map((item, index) => (
           <Technology tecInfo={item} key={index} />
@@ -100,7 +98,7 @@ function App() {
 
   const projectsSection = (
     <Section id="projects">
-      <h1 style={{ fontSize: FONT_SIZES[2] }}>Main projects</h1>
+      <h1 style={{ fontSize: FONT_SIZES[2] }}>{t("mainProjects")}</h1>
 
       <ProjectContainer
         style={{
@@ -288,6 +286,6 @@ const ContactIconsContainer = styled.div`
   gap: 100px;
 
   @media (max-width: 700px) {
-    gap: 45px
+    gap: 45px;
   }
 `;

@@ -1,0 +1,27 @@
+{
+  "translation": {
+    "introduction": "Olá, me chamo",
+    "attribuition": "Desenvolvedor de software brasileiro",
+    "readCvLabel": "Ver currículo",
+    "navbar": {
+      "home": "Início",
+      "projects": "Projetos",
+      "technologies": "Tecnologias",
+      "aboutMe": "Sobre mim"
+    },
+    "mainProjects": "Principais projetos",
+    "technologyStack": "Stack de tecnologias",
+    "whoAmI": "Quem sou eu?",
+    "about": "Um desenvolvedor de software versátil, com experiência na construção de aplicações web responsivas utilizando React JS e TypeScript, no desenvolvimento de APIs REST com Spring Boot e na criação de aplicativos móveis com React Native. Proficiente em programação de baixo nível com C++ e Java, sou um aprendiz rápido que se adapta com facilidade a novas tecnologias e a requisitos dinâmicos de projetos.",
+    "showMore": "Mostrar mais",
+    "showLess": "Mostrar menos",
+    "projects": {
+      "mcc": "Plataforma de intermediação de financiamento imobiliário",
+      "peregrin": "Marketplace de excursões turísticas",
+      "turisgo": "Plataforma de turismo emissivo com foco patrimonial",
+      "tarefando": "Aplicativo móvel para acompanhamento de tarefas escolares com foco no ensino fundamental e reforço",
+      "imagePlayground": "Aplicação web que oferece técnicas avançadas de processamento digital de imagens",
+      "viewer3d": "Aplicação DirectX para realização de transformações de objetos 3D"
+    }
+  }
+}

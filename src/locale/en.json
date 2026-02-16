@@ -1,0 +1,27 @@
+{
+  "translation": {
+    "introduction": "Hello there, i'm",
+    "attribuition": "Software developer based in Brazil",
+    "readCvLabel": "Read CV",
+    "navbar": {
+      "home": "Home",
+      "projects": "Projects",
+      "technologies": "Technologies",
+      "aboutMe": "About me"
+    },
+    "mainProjects": "Main projects",
+    "technologyStack": "Technology stack",
+    "whoAmI": "Who am i?",
+    "about": "A versatile software developer skilled in building responsive web applications with React JS and TypeScript, developing REST APIs with Spring Boot, and creating mobile apps with React Native. Proficient in low-level programming with C++ and Java, I am a quick learner who adapts seamlessly to new technologies and dynamic project requirements.",
+    "showMore": "Show more",
+    "showLess": "Show less",
+    "projects": {
+      "mcc": "Real estate financing facilitation platform",
+      "peregrin": "Travel excursions marketplace",
+      "turisgo": "Heritage-focused outbound tourism platform",
+      "tarefando": "Mobile app for academic task tracking focused on primary education and tutoring",
+      "imagePlayground": "Web app that provides advanced digital image processing techniques",
+      "viewer3d": "DirectX app that provides 3D object transformations"
+    }
+  }
+}

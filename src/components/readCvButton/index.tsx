@@ -1,11 +1,14 @@
 import { FaSpaceShuttle } from "react-icons/fa";
 import styled from "styled-components";
 import { FONT_SIZES } from "../../utils/fontSizes";
+import { useTranslation } from "react-i18next";
 
 const CURRICULUM_LINK =
   "https://drive.google.com/drive/folders/1SdPhbAyMdBvWKSjUuJNmpH4z7ufXoSg1?usp=sharing";
 
 const ReadCVButton = () => {
+  const { t } = useTranslation();
+
   return (
     <ButtonContainer href={CURRICULUM_LINK} target="_blank">
       <button>
@@ -13,7 +16,7 @@ const ReadCVButton = () => {
           <div className="shuttle-icon">
             <FaSpaceShuttle size={25} />
           </div>
-          <p>Read CV</p>
+          <p>{t("readCvLabel")}</p>
         </h2>
       </button>
     </ButtonContainer>

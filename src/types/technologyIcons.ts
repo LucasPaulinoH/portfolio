@@ -4,11 +4,14 @@ import {
   SiCplusplus,
   SiReact,
   SiSpring,
-  SiC,
   SiPostgresql,
   SiFirebase,
   SiStyledcomponents,
   SiMui,
+  SiTailwindcss,
+  SiStorybook,
+  SiDocker,
+  SiNextdotjs,
 } from "react-icons/si";
 import { FaJava } from "react-icons/fa";
 import { IconType } from "react-icons";
@@ -30,9 +33,11 @@ export const TECHNOLOGY_ICONS: TecIcon[] = [
     icon: SiTypescript,
     link: "https://www.typescriptlang.org/docs/",
   },
-  { name: "Java", icon: FaJava, link: "https://docs.oracle.com/en/java/" },
-  { name: "C++", icon: SiCplusplus, link: "https://cplusplus.com/doc/" },
-  { name: "C", icon: SiC, link: "https://en.cppreference.com/w/c/language" },
+  {
+    name: "Next JS",
+    icon: SiNextdotjs,
+    link: "https://nextjs.org/",
+  },
   { name: "React JS", icon: SiReact, link: "https://react.dev/learn" },
   {
     name: "React Native",
@@ -44,15 +49,27 @@ export const TECHNOLOGY_ICONS: TecIcon[] = [
     icon: SiSpring,
     link: "https://docs.spring.io/spring-boot/index.html",
   },
+  { name: "Java", icon: FaJava, link: "https://docs.oracle.com/en/java/" },
+  { name: "C++", icon: SiCplusplus, link: "https://cplusplus.com/doc/" },
   {
     name: "PostgreSQL",
     icon: SiPostgresql,
     link: "https://www.postgresql.org/docs/",
   },
   {
-    name: "Firebase",
-    icon: SiFirebase,
-    link: "https://firebase.google.com/docs",
+    name: "Docker",
+    icon: SiDocker,
+    link: "https://docs.docker.com/",
+  },
+  {
+    name: "Tailwind CSS",
+    icon: SiTailwindcss,
+    link: "https://tailwindcss.com/",
+  },
+  {
+    name: "Storybook",
+    icon: SiStorybook,
+    link: "https://storybook.js.org/",
   },
   {
     name: "Material UI",
@@ -63,5 +80,10 @@ export const TECHNOLOGY_ICONS: TecIcon[] = [
     name: "Styled Components",
     icon: SiStyledcomponents,
     link: "https://styled-components.com/docs",
+  },
+  {
+    name: "Firebase",
+    icon: SiFirebase,
+    link: "https://firebase.google.com/docs",
   },
 ];
