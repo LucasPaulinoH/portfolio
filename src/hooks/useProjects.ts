@@ -9,6 +9,8 @@ import peregrinHome from "../assets/projects/peregrin/home.png";
 import peregrinMap from "../assets/projects/peregrin/map.png";
 import peregrinExcursions from "../assets/projects/peregrin/excursions.png";
 import turisgoHome from "../assets/projects/turisgo/home.png";
+import turisgoMap from "../assets/projects/turisgo/appMap.png";
+import turisgoRoute from "../assets/projects/turisgo/routeApp.png";
 import { useTranslation } from "react-i18next";
 import { IProjectCard } from "../types/projects";
 
@@ -31,7 +33,7 @@ export const useProjects = (): IProjectCard[] => {
       link: "https://peregrin.demandoria.com/",
     },
     {
-      images: [turisgoHome],
+      images: [turisgoMap, turisgoRoute, turisgoHome],
       title: "TurisGo",
       description: t("projects.turisgo"),
       technologies: [

@@ -1,12 +1,22 @@
-import { createContext, ReactNode, useState } from "react";
+import {
+  createContext,
+  Dispatch,
+  ReactNode,
+  SetStateAction,
+  useState,
+} from "react";
 import { Language } from "../types/language";
 import { useTranslation } from "react-i18next";
 
 export interface LanguageContextType {
-  handleChangeLanguage: VoidFunction;
+  selectedLanguage: Language;
+  setSelectedLanguage: Dispatch<SetStateAction<Language>> | VoidFunction;
+  handleChangeLanguage: (selectedLanguage?: Language) => void;
 }
 
 export const LanguageContext = createContext<LanguageContextType>({
+  selectedLanguage: Language.EN,
+  setSelectedLanguage: () => {},
   handleChangeLanguage: () => {},
 });
 
@@ -25,16 +35,18 @@ export const LanguageContextProvider: React.FC<ILanguageProps> = ({
     language as Language,
   );
 
-  const handleChangeLanguage = () => {
+  const handleChangeLanguage = (selectedLanguage?: Language) => {
     const newLanguage =
       selectedLanguage === Language.PT ? Language.EN : Language.PT;
 
-    changeLanguage(newLanguage);
-    setSelectedLanguage(newLanguage);
+    changeLanguage(selectedLanguage || newLanguage);
+    setSelectedLanguage(selectedLanguage || newLanguage);
   };
 
   return (
-    <LanguageContext.Provider value={{ handleChangeLanguage }}>
+    <LanguageContext.Provider
+      value={{ selectedLanguage, setSelectedLanguage, handleChangeLanguage }}
+    >
       {children}
     </LanguageContext.Provider>
   );

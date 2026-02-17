@@ -4,17 +4,14 @@ import { Link } from "react-scroll";
 import styled from "styled-components";
 import lpLogo from "../../assets/LP-logo.svg";
 import { HiMiniBars3 } from "react-icons/hi2";
-import { useLanguage } from "../../hooks/useLanguage";
 import { useTranslation } from "react-i18next";
-import { GrLanguage } from "react-icons/gr";
+import LanguageSelector from "../languageSelector";
 
 const Navbar = () => {
   const { t } = useTranslation();
 
   const [selectedSectionIndex, setSelectedSectionIndex] = useState(0);
   const [showMenu, setShowMenu] = useState(false);
-
-  const { handleChangeLanguage } = useLanguage();
 
   const NAVBAR_LABELS = [
     { label: t("navbar.home"), id: "home" },
@@ -65,10 +62,7 @@ const Navbar = () => {
           </div>
         ))}
 
-        <GrLanguage
-          onClick={handleChangeLanguage}
-          style={{ cursor: "pointer" }}
-        />
+        <LanguageSelector />
       </div>
 
       <div className="menu-button" onClick={() => setShowMenu(!showMenu)}>
